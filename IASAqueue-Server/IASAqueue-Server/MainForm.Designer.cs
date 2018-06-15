@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtb_Logs = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button6 = new System.Windows.Forms.Button();
             this.btn_Monitor = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cb_Displays = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.tb_Port = new System.Windows.Forms.TextBox();
@@ -45,7 +45,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lbl_inQueue = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbl_Uptime = new System.Windows.Forms.Label();
             this.lbl_Status = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button5 = new System.Windows.Forms.Button();
@@ -59,21 +59,22 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // richTextBox1
+            // rtb_Logs
             // 
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Location = new System.Drawing.Point(3, 245);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(546, 117);
-            this.richTextBox1.TabIndex = 1;
-            this.richTextBox1.Text = "";
+            this.rtb_Logs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtb_Logs.Location = new System.Drawing.Point(3, 245);
+            this.rtb_Logs.Name = "rtb_Logs";
+            this.rtb_Logs.ReadOnly = true;
+            this.rtb_Logs.Size = new System.Drawing.Size(546, 117);
+            this.rtb_Logs.TabIndex = 1;
+            this.rtb_Logs.Text = "";
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.richTextBox1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.rtb_Logs, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -100,7 +101,7 @@
             // 
             this.groupBox4.Controls.Add(this.button6);
             this.groupBox4.Controls.Add(this.btn_Monitor);
-            this.groupBox4.Controls.Add(this.comboBox1);
+            this.groupBox4.Controls.Add(this.cb_Displays);
             this.groupBox4.Location = new System.Drawing.Point(9, 132);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(310, 100);
@@ -127,13 +128,16 @@
             this.btn_Monitor.UseVisualStyleBackColor = true;
             this.btn_Monitor.Click += new System.EventHandler(this.btn_Monitor_Click);
             // 
-            // comboBox1
+            // cb_Displays
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 25);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(157, 28);
-            this.comboBox1.TabIndex = 6;
+            this.cb_Displays.BackColor = System.Drawing.SystemColors.Window;
+            this.cb_Displays.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_Displays.FormattingEnabled = true;
+            this.cb_Displays.Location = new System.Drawing.Point(6, 25);
+            this.cb_Displays.Name = "cb_Displays";
+            this.cb_Displays.Size = new System.Drawing.Size(157, 28);
+            this.cb_Displays.TabIndex = 6;
+            this.cb_Displays.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // groupBox3
             // 
@@ -156,6 +160,7 @@
             this.button1.TabIndex = 8;
             this.button1.Text = "Start";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // tb_Port
             // 
@@ -164,6 +169,7 @@
             this.tb_Port.Name = "tb_Port";
             this.tb_Port.Size = new System.Drawing.Size(91, 26);
             this.tb_Port.TabIndex = 3;
+            this.tb_Port.Text = "11000";
             // 
             // lbl_Port
             // 
@@ -190,7 +196,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.lbl_inQueue);
-            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.lbl_Uptime);
             this.groupBox2.Controls.Add(this.lbl_Status);
             this.groupBox2.Location = new System.Drawing.Point(9, 9);
             this.groupBox2.Name = "groupBox2";
@@ -239,17 +245,17 @@
             this.lbl_inQueue.Text = "0";
             this.lbl_inQueue.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label5
+            // lbl_Uptime
             // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label5.Location = new System.Drawing.Point(226, 22);
-            this.label5.Name = "label5";
-            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label5.Size = new System.Drawing.Size(76, 20);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "12:10:25";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbl_Uptime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_Uptime.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbl_Uptime.Location = new System.Drawing.Point(226, 22);
+            this.lbl_Uptime.Name = "lbl_Uptime";
+            this.lbl_Uptime.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lbl_Uptime.Size = new System.Drawing.Size(76, 20);
+            this.lbl_Uptime.TabIndex = 5;
+            this.lbl_Uptime.Text = "12:10:25";
+            this.lbl_Uptime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbl_Status
             // 
@@ -258,9 +264,9 @@
             this.lbl_Status.Location = new System.Drawing.Point(72, 22);
             this.lbl_Status.Name = "lbl_Status";
             this.lbl_Status.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lbl_Status.Size = new System.Drawing.Size(54, 20);
+            this.lbl_Status.Size = new System.Drawing.Size(59, 20);
             this.lbl_Status.TabIndex = 5;
-            this.lbl_Status.Text = "Online";
+            this.lbl_Status.Text = "Offline";
             this.lbl_Status.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // groupBox1
@@ -325,7 +331,7 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtb_Logs;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_Monitor;
@@ -340,13 +346,13 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cb_Displays;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbl_Uptime;
         private System.Windows.Forms.Button button5;
     }
 }
