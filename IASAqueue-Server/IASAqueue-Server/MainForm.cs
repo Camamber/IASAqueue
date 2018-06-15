@@ -12,15 +12,24 @@ namespace IASAqueue_Server
 {
     public partial class MainForm : Form
     {
+        Monitor monitor;
+
         public MainForm()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
-            Monitor monitor = new Monitor();
+            monitor = new Monitor();
+        }
+
+        private void btn_Monitor_Click(object sender, EventArgs e)
+        {
+            monitor.Close();
+            monitor = new Monitor();
             monitor.Show();
         }
+
     }
 }
