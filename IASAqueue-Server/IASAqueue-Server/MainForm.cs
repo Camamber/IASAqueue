@@ -62,11 +62,16 @@ namespace IASAqueue_Server
             {
                 lbl_Status.ForeColor = Color.Red;
                 lbl_Status.Text = "Offline";
+                btn_Stop.Visible = false;
+                btn_Start.Visible = true;
             }
             else if (server.GetSetStatus == Status.Online)
             {
+                
                 lbl_Status.ForeColor = Color.Green;
                 lbl_Status.Text = "Online";
+                btn_Stop.Visible = true;
+                btn_Start.Visible = false;
             }
             else if (server.GetSetStatus == Status.Paused)
             {
@@ -80,7 +85,7 @@ namespace IASAqueue_Server
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_Start_Click(object sender, EventArgs e)
         {
             int port;
             if (int.TryParse(tb_Port.Text, out port))
@@ -99,6 +104,11 @@ namespace IASAqueue_Server
         private void Server_StatusChanged(object sender, EventArgs e)
         {
             this.BeginInvoke((MethodInvoker)(() => this.Refresh_Status()));
+        }
+
+        private void btn_Stop_Click(object sender, EventArgs e)
+        {
+            server.Stop();
         }
     }
 }

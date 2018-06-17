@@ -18,3 +18,5 @@ D:\Projects\Visual Studio\IASAqueue\IASAqueue-Server\IASAqueue-Server\obj\Debug\
 D:\Projects\Visual Studio\IASAqueue\IASAqueue-Server\IASAqueue-Server\obj\Debug\IASAqueue_Server.Monitor.resources
 D:\Projects\Visual Studio\IASAqueue\IASAqueue-Server\IASAqueue-Server\obj\Debug\IASAqueue_Server.Properties.Resources.resources
 D:\Projects\Visual Studio\IASAqueue\IASAqueue-Server\IASAqueue-Server\obj\Debug\IASAqueue-Server.csproj.GenerateResource.Cache
+D:\Projects\Visual Studio\IASAqueue\IASAqueue-Server\IASAqueue-Server\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\Visual Studio\IASAqueue\IASAqueue-Server\IASAqueue-Server\bin\Debug\Newtonsoft.Json.xml

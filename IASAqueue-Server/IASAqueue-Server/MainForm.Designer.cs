@@ -36,7 +36,8 @@
             this.btn_Monitor = new System.Windows.Forms.Button();
             this.cb_Displays = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_Stop = new System.Windows.Forms.Button();
+            this.btn_Start = new System.Windows.Forms.Button();
             this.tb_Port = new System.Windows.Forms.TextBox();
             this.lbl_Port = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -62,6 +63,7 @@
             // rtb_Logs
             // 
             this.rtb_Logs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtb_Logs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.rtb_Logs.Location = new System.Drawing.Point(3, 245);
             this.rtb_Logs.Name = "rtb_Logs";
             this.rtb_Logs.ReadOnly = true;
@@ -141,10 +143,11 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.btn_Start);
             this.groupBox3.Controls.Add(this.tb_Port);
             this.groupBox3.Controls.Add(this.lbl_Port);
             this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Controls.Add(this.btn_Stop);
             this.groupBox3.Location = new System.Drawing.Point(325, 9);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(211, 117);
@@ -152,15 +155,25 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Control Panel";
             // 
-            // button1
+            // btn_Stop
             // 
-            this.button1.Location = new System.Drawing.Point(6, 25);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 46);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Start";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_Stop.Location = new System.Drawing.Point(6, 25);
+            this.btn_Stop.Name = "btn_Stop";
+            this.btn_Stop.Size = new System.Drawing.Size(101, 46);
+            this.btn_Stop.TabIndex = 9;
+            this.btn_Stop.Text = "Stop";
+            this.btn_Stop.UseVisualStyleBackColor = true;
+            this.btn_Stop.Click += new System.EventHandler(this.btn_Stop_Click);
+            // 
+            // btn_Start
+            // 
+            this.btn_Start.Location = new System.Drawing.Point(6, 25);
+            this.btn_Start.Name = "btn_Start";
+            this.btn_Start.Size = new System.Drawing.Size(101, 46);
+            this.btn_Start.TabIndex = 8;
+            this.btn_Start.Text = "Start";
+            this.btn_Start.UseVisualStyleBackColor = true;
+            this.btn_Start.Click += new System.EventHandler(this.btn_Start_Click);
             // 
             // tb_Port
             // 
@@ -345,7 +358,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_Start;
         private System.Windows.Forms.ComboBox cb_Displays;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button6;
@@ -354,6 +367,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbl_Uptime;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btn_Stop;
     }
 }
 
