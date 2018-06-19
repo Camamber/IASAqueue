@@ -10,21 +10,35 @@ using System.Windows.Forms;
 
 namespace IASAqueue_Server
 {
-    public partial class Monitor : Form
+    partial class Monitor : Form
     {
-        public Monitor()
+        GlobalVariables global;
+        public Monitor(GlobalVariables global)
         {
             InitializeComponent();
-        }
-
-        private void Monitor_KeyUp(object sender, KeyEventArgs e)
-        {
-            
+            this.global = global;
         }
 
         private void Monitor_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if(e.KeyChar == (char)Keys.Escape)
+                this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            global.PrintLogs("#"+global.queue.Add().ToString()+" added to queue!");
+        }
+
+        private void btn_Close_Click(object sender, EventArgs e)
+        {
             this.Close();
+        }
+
+        private void Monitor_Load(object sender, EventArgs e)
+        {
+            this.Activate();
+            this.Focus();
         }
     }
 }

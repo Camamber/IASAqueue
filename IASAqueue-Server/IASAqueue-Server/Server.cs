@@ -17,6 +17,7 @@ namespace IASAqueue_Server
         static TcpListener listener;
         RichTextBox logger;
         public event EventHandler StatusChanged;
+        GlobalVariables global;
 
         protected virtual void OnStatusChanged(EventArgs e)
         {
@@ -24,12 +25,13 @@ namespace IASAqueue_Server
                 StatusChanged(this, e);
         }
 
-        public Server(int port, RichTextBox richtextbox )
+        public Server(int port, RichTextBox richtextbox, GlobalVariables global )
         {
             this.port = port;
             logger = richtextbox;
             listener = new TcpListener(IPAddress.Parse("127.0.0.1"), port);
             status = Status.Offline;
+            this.global = global;
         }
 
         public void Start()
@@ -38,25 +40,25 @@ namespace IASAqueue_Server
             {              
                 listener.Start();
                 GetSetStatus = Status.Online;
-                this.logger.BeginInvoke((MethodInvoker)(() => this.logger.Text = ("Server is up. Waiting for clients...\n") + this.logger.Text));
+                global.PrintLogs("Server is up. Waiting for clients...");
                 while (status == Status.Online)
                 {
                     TcpClient client = listener.AcceptTcpClient();
-                    ClientObject clientObject = new ClientObject(client, logger);
+                    ClientObject clientObject = new ClientObject(client, global);
 
                     Thread clientThread = new Thread(new ThreadStart(clientObject.Process));
                     clientThread.Start();
                 }
             }
             catch (Exception ex)
-            {               
-                this.logger.BeginInvoke((MethodInvoker)(() => this.logger.Text  = (ex.Message+"\n") + this.logger.Text));            
+            {
+                global.PrintLogs(ex.Message);
             }
             finally
             {
                 if (listener != null)
                     listener.Stop();
-                this.logger.BeginInvoke((MethodInvoker)(() => this.logger.Text = ("Server is down\n") + this.logger.Text));
+                global.PrintLogs("Server is down");
                 GetSetStatus = Status.Offline;
             }
         }

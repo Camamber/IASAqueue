@@ -13,12 +13,14 @@ using System.Windows.Forms;
 namespace IASAqueue_Server
 {
     public enum Status { Online, Offline, Paused }
+    
     public partial class MainForm : Form
     {
         Monitor monitor;
         Screen screen;
         Screen[] screens;
         Server server;
+        GlobalVariables globals;
 
         public MainForm()
         {
@@ -27,16 +29,18 @@ namespace IASAqueue_Server
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            monitor = new Monitor();
+            monitor = new Monitor(globals);
             Refresh_DisplayList();
             lbl_inQueue.Text = "0";
             lbl_Uptime.Text = "00:00:00";
+            globals = new GlobalVariables(rtb_Logs);
+
         }
 
         private void btn_Monitor_Click(object sender, EventArgs e)
         {
             Rectangle bounds = screen.Bounds;
-            monitor = new Monitor();
+            monitor = new Monitor(globals);
             monitor.StartPosition = FormStartPosition.Manual;
             monitor.SetBounds(bounds.X, bounds.Y, bounds.Width, bounds.Height);
             monitor.Show();
@@ -90,7 +94,7 @@ namespace IASAqueue_Server
             int port;
             if (int.TryParse(tb_Port.Text, out port))
             {
-                server = new Server(port, rtb_Logs);
+                server = new Server(port, rtb_Logs, globals);
                 server.StatusChanged += Server_StatusChanged;
                 Thread thread = new Thread(server.Start);
                 thread.Start();

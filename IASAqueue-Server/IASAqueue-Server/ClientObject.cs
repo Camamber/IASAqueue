@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 
 namespace IASAqueue_Server
-{
+{   
     class Request
     {
         public string Login;
@@ -17,14 +17,13 @@ namespace IASAqueue_Server
 
     class ClientObject
     {
-        RichTextBox logger;
         public TcpClient client;
         User user;
-        Dictionary<string, User> users = new Dictionary<string, User>() { {"Egor", new User() {password="123" } }, { "Gleb", new User() { password = "321" } } };
-        public ClientObject(TcpClient tcpClient, RichTextBox richtextbox)
+        GlobalVariables global;
+        public ClientObject(TcpClient tcpClient, GlobalVariables global)
         {
-            logger = richtextbox;
             client = tcpClient;
+            this.global = global;
         }
 
         public void Process()
@@ -49,24 +48,32 @@ namespace IASAqueue_Server
 
                     if (user == null)
                     {
-                        if (users.Keys.Contains(request))
+                        if (global.users.Keys.Contains(request))
                         {
-                            user = users[request];
-                            PrintLogs(request + " connected!");
+                            user = global.users[request];
+                            global.PrintLogs(request + " connected!");
                             response = "OK!";
                         }
                         else
                         {
                             response = "Wrong username";
-                            PrintLogs("Unknown user: " + request);
+                            global.PrintLogs("Unknown user: " + request);
                         }
                     }
                     else
                     {
                         Request message = JsonConvert.DeserializeObject<Request>(builder.ToString());
 
-                        PrintLogs(message.Login + ": " + message.Message);
-                        response = "Hi, " + message.Login + "! " + message.Message.ToUpper();
+                        global.PrintLogs(message.Login + ": " + message.Message);
+                        if(message.Message.Equals("Next"))
+                        {
+                            response = global.queue.Next().ToString();
+                        }
+                        else
+                        {
+                            response = "Unknown command!";
+                        }
+                       
                     }
 
                     data = Encoding.UTF8.GetBytes(response);
@@ -76,7 +83,7 @@ namespace IASAqueue_Server
             }
             catch (Exception ex)
             {
-                PrintLogs(ex.Message);
+                global.PrintLogs(ex.Message);
             }
             finally
             {
@@ -85,14 +92,8 @@ namespace IASAqueue_Server
                 if (client != null)
                     client.Close();
                 if (client != null)
-                    PrintLogs(user.login + " disconnected!");
+                    global.PrintLogs(user.Login + " disconnected!");
             }
-        }
-
-
-        private void PrintLogs(string msg)
-        {
-            this.logger.BeginInvoke((MethodInvoker)(() => this.logger.Text = msg + "\n" + this.logger.Text));
-        }
+        }   
     }
 }
