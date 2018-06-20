@@ -52,7 +52,7 @@
   <ItemGroup>
     <Compile Include="AESEncryptor.cs" />
     <Compile Include="ClientObject.cs" />
-    <Compile Include="GlobalVariables.cs" />
+    <Compile Include="Model.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

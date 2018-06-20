@@ -9,7 +9,7 @@ namespace IASAqueue_Server
     class Queue
     {
         List<int> queue;
-        int last;
+        private int last;
 
         public Queue()
         {
@@ -22,6 +22,11 @@ namespace IASAqueue_Server
             last++;
             queue.Add(last);
             return last;
+        }
+
+        public int Last
+        {
+            get { return last; }
         }
 
         public int Next()

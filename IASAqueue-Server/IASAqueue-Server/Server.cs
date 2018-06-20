@@ -17,7 +17,7 @@ namespace IASAqueue_Server
         static TcpListener listener;
         RichTextBox logger;
         public event EventHandler StatusChanged;
-        GlobalVariables global;
+        Model global;
 
         protected virtual void OnStatusChanged(EventArgs e)
         {
@@ -25,7 +25,7 @@ namespace IASAqueue_Server
                 StatusChanged(this, e);
         }
 
-        public Server(int port, RichTextBox richtextbox, GlobalVariables global )
+        public Server(int port, RichTextBox richtextbox, Model global )
         {
             this.port = port;
             logger = richtextbox;

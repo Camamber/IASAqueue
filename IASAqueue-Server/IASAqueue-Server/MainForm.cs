@@ -20,7 +20,7 @@ namespace IASAqueue_Server
         Screen screen;
         Screen[] screens;
         Server server;
-        GlobalVariables globals;
+        Model globals;
 
         public MainForm()
         {
@@ -33,7 +33,7 @@ namespace IASAqueue_Server
             Refresh_DisplayList();
             lbl_inQueue.Text = "0";
             lbl_Uptime.Text = "00:00:00";
-            globals = new GlobalVariables(rtb_Logs);
+            globals = new Model(rtb_Logs, monitor);
 
         }
 

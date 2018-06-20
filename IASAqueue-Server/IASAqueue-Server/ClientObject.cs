@@ -19,8 +19,8 @@ namespace IASAqueue_Server
     {
         public TcpClient client;
         User user;
-        GlobalVariables global;
-        public ClientObject(TcpClient tcpClient, GlobalVariables global)
+        Model global;
+        public ClientObject(TcpClient tcpClient, Model global)
         {
             client = tcpClient;
             this.global = global;
@@ -51,7 +51,8 @@ namespace IASAqueue_Server
                         if (global.users.Keys.Contains(request))
                         {
                             user = global.users[request];
-                            global.PrintLogs(request + " connected!");
+                            user.Online = true;
+                            global.PrintLogs(request + " connected!");                      
                             response = "OK!";
                         }
                         else
@@ -92,7 +93,11 @@ namespace IASAqueue_Server
                 if (client != null)
                     client.Close();
                 if (client != null)
+                {
                     global.PrintLogs(user.Login + " disconnected!");
+                    user.Online = false;
+                }
+
             }
         }   
     }
