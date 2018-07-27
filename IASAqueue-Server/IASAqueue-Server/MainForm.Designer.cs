@@ -33,10 +33,10 @@
             this.rtb_Logs = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pnl_Dashboard = new System.Windows.Forms.Panel();
+            this.btn_Start = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.btn_Monitor = new System.Windows.Forms.Button();
             this.btn_Stop = new System.Windows.Forms.Button();
-            this.btn_Start = new System.Windows.Forms.Button();
             this.lbl_inQueue = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -53,6 +53,11 @@
             this.tab_Media = new System.Windows.Forms.TabPage();
             this.label16 = new System.Windows.Forms.Label();
             this.tab_Settings = new System.Windows.Forms.TabPage();
+            this.btn_AutosavePath = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.nUD_AutosaveInterval = new System.Windows.Forms.NumericUpDown();
+            this.tb_AutosavePath = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.lbl_Setting_IP = new System.Windows.Forms.Label();
             this.cb_Printers = new System.Windows.Forms.ComboBox();
             this.lbl_Settings_Printer = new System.Windows.Forms.Label();
@@ -65,25 +70,20 @@
             this.lbl_Setting_Port = new System.Windows.Forms.Label();
             this.cb_COMPorts = new System.Windows.Forms.ComboBox();
             this.lbl_Settings_ButtonPorts = new System.Windows.Forms.Label();
-            this.tab_About = new System.Windows.Forms.TabPage();
-            this.label17 = new System.Windows.Forms.Label();
-            this.pnl_ControlBox = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.pnl_Menu = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tb_AutosavePath = new System.Windows.Forms.TextBox();
-            this.nUD_AutosaveInterval = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btn_AutosavePath = new System.Windows.Forms.Button();
             this.btn_RButtonPorts = new System.Windows.Forms.Button();
             this.btn_RDisplays = new System.Windows.Forms.Button();
             this.btn_RPrinters = new System.Windows.Forms.Button();
+            this.tab_About = new System.Windows.Forms.TabPage();
+            this.label17 = new System.Windows.Forms.Label();
+            this.pnl_ControlBox = new System.Windows.Forms.Panel();
+            this.btn_Exit = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.pnl_Menu = new System.Windows.Forms.Panel();
             this.btn_About = new System.Windows.Forms.Button();
             this.btn_Settings = new System.Windows.Forms.Button();
             this.btn_Media = new System.Windows.Forms.Button();
             this.btn_Queue = new System.Windows.Forms.Button();
             this.btn_Dashboard = new System.Windows.Forms.Button();
-            this.btn_Exit = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.tmr_Autosaver = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
@@ -95,11 +95,11 @@
             this.tab_Queue.SuspendLayout();
             this.tab_Media.SuspendLayout();
             this.tab_Settings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nUD_AutosaveInterval)).BeginInit();
             this.tab_About.SuspendLayout();
             this.pnl_ControlBox.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.pnl_Menu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nUD_AutosaveInterval)).BeginInit();
             this.SuspendLayout();
             // 
             // rtb_Logs
@@ -148,6 +148,20 @@
             this.pnl_Dashboard.Size = new System.Drawing.Size(566, 252);
             this.pnl_Dashboard.TabIndex = 3;
             // 
+            // btn_Start
+            // 
+            this.btn_Start.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
+            this.btn_Start.FlatAppearance.BorderSize = 0;
+            this.btn_Start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Start.ForeColor = System.Drawing.Color.White;
+            this.btn_Start.Location = new System.Drawing.Point(13, 190);
+            this.btn_Start.Name = "btn_Start";
+            this.btn_Start.Size = new System.Drawing.Size(101, 36);
+            this.btn_Start.TabIndex = 9;
+            this.btn_Start.Text = "Start";
+            this.btn_Start.UseVisualStyleBackColor = false;
+            this.btn_Start.Click += new System.EventHandler(this.btn_Start_Click);
+            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -186,20 +200,6 @@
             this.btn_Stop.Text = "Stop";
             this.btn_Stop.UseVisualStyleBackColor = false;
             this.btn_Stop.Click += new System.EventHandler(this.btn_Stop_Click);
-            // 
-            // btn_Start
-            // 
-            this.btn_Start.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
-            this.btn_Start.FlatAppearance.BorderSize = 0;
-            this.btn_Start.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Start.ForeColor = System.Drawing.Color.White;
-            this.btn_Start.Location = new System.Drawing.Point(13, 190);
-            this.btn_Start.Name = "btn_Start";
-            this.btn_Start.Size = new System.Drawing.Size(101, 36);
-            this.btn_Start.TabIndex = 9;
-            this.btn_Start.Text = "Start";
-            this.btn_Start.UseVisualStyleBackColor = false;
-            this.btn_Start.Click += new System.EventHandler(this.btn_Start_Click);
             // 
             // lbl_inQueue
             // 
@@ -413,6 +413,70 @@
             this.tab_Settings.Text = "Settings";
             this.tab_Settings.UseVisualStyleBackColor = true;
             // 
+            // btn_AutosavePath
+            // 
+            this.btn_AutosavePath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
+            this.btn_AutosavePath.FlatAppearance.BorderSize = 0;
+            this.btn_AutosavePath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_AutosavePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_AutosavePath.ForeColor = System.Drawing.Color.White;
+            this.btn_AutosavePath.Location = new System.Drawing.Point(442, 233);
+            this.btn_AutosavePath.Name = "btn_AutosavePath";
+            this.btn_AutosavePath.Size = new System.Drawing.Size(26, 26);
+            this.btn_AutosavePath.TabIndex = 28;
+            this.btn_AutosavePath.Text = "...";
+            this.btn_AutosavePath.UseVisualStyleBackColor = false;
+            this.btn_AutosavePath.Click += new System.EventHandler(this.btn_AutosavePath_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(160, 235);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 20);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "min.";
+            // 
+            // nUD_AutosaveInterval
+            // 
+            this.nUD_AutosaveInterval.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nUD_AutosaveInterval.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.nUD_AutosaveInterval.Location = new System.Drawing.Point(103, 233);
+            this.nUD_AutosaveInterval.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nUD_AutosaveInterval.Name = "nUD_AutosaveInterval";
+            this.nUD_AutosaveInterval.Size = new System.Drawing.Size(57, 26);
+            this.nUD_AutosaveInterval.TabIndex = 26;
+            this.nUD_AutosaveInterval.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.nUD_AutosaveInterval.ValueChanged += new System.EventHandler(this.nUD_AutosaveInterval_ValueChanged);
+            // 
+            // tb_AutosavePath
+            // 
+            this.tb_AutosavePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_AutosavePath.Location = new System.Drawing.Point(200, 233);
+            this.tb_AutosavePath.Name = "tb_AutosavePath";
+            this.tb_AutosavePath.Size = new System.Drawing.Size(245, 26);
+            this.tb_AutosavePath.TabIndex = 25;
+            this.tb_AutosavePath.TextChanged += new System.EventHandler(this.tb_btn_AutosavePath_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(6, 235);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 20);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Autosave: ";
+            // 
             // lbl_Setting_IP
             // 
             this.lbl_Setting_IP.AutoSize = true;
@@ -544,131 +608,6 @@
             this.lbl_Settings_ButtonPorts.TabIndex = 11;
             this.lbl_Settings_ButtonPorts.Text = "Button port:";
             // 
-            // tab_About
-            // 
-            this.tab_About.Controls.Add(this.label17);
-            this.tab_About.Location = new System.Drawing.Point(4, 5);
-            this.tab_About.Name = "tab_About";
-            this.tab_About.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_About.Size = new System.Drawing.Size(572, 387);
-            this.tab_About.TabIndex = 4;
-            this.tab_About.Text = "About";
-            this.tab_About.UseVisualStyleBackColor = true;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label17.Location = new System.Drawing.Point(6, 3);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(65, 24);
-            this.label17.TabIndex = 15;
-            this.label17.Text = "About";
-            // 
-            // pnl_ControlBox
-            // 
-            this.pnl_ControlBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.pnl_ControlBox.Controls.Add(this.btn_Exit);
-            this.pnl_ControlBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_ControlBox.Location = new System.Drawing.Point(0, 0);
-            this.pnl_ControlBox.Name = "pnl_ControlBox";
-            this.pnl_ControlBox.Size = new System.Drawing.Size(836, 30);
-            this.pnl_ControlBox.TabIndex = 4;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel2.Controls.Add(this.tabControl1, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.pnl_Menu, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 30);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(836, 402);
-            this.tableLayoutPanel2.TabIndex = 5;
-            // 
-            // pnl_Menu
-            // 
-            this.pnl_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
-            this.pnl_Menu.Controls.Add(this.btn_About);
-            this.pnl_Menu.Controls.Add(this.btn_Settings);
-            this.pnl_Menu.Controls.Add(this.btn_Media);
-            this.pnl_Menu.Controls.Add(this.btn_Queue);
-            this.pnl_Menu.Controls.Add(this.btn_Dashboard);
-            this.pnl_Menu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_Menu.Location = new System.Drawing.Point(0, 0);
-            this.pnl_Menu.Margin = new System.Windows.Forms.Padding(0);
-            this.pnl_Menu.Name = "pnl_Menu";
-            this.pnl_Menu.Size = new System.Drawing.Size(250, 402);
-            this.pnl_Menu.TabIndex = 6;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(6, 235);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 20);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "Autosave: ";
-            // 
-            // tb_AutosavePath
-            // 
-            this.tb_AutosavePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tb_AutosavePath.Location = new System.Drawing.Point(200, 233);
-            this.tb_AutosavePath.Name = "tb_AutosavePath";
-            this.tb_AutosavePath.Size = new System.Drawing.Size(245, 26);
-            this.tb_AutosavePath.TabIndex = 25;
-            this.tb_AutosavePath.TextChanged += new System.EventHandler(this.tb_btn_AutosavePath_TextChanged);
-            // 
-            // nUD_AutosaveInterval
-            // 
-            this.nUD_AutosaveInterval.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.nUD_AutosaveInterval.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.nUD_AutosaveInterval.Location = new System.Drawing.Point(103, 233);
-            this.nUD_AutosaveInterval.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.nUD_AutosaveInterval.Name = "nUD_AutosaveInterval";
-            this.nUD_AutosaveInterval.Size = new System.Drawing.Size(57, 26);
-            this.nUD_AutosaveInterval.TabIndex = 26;
-            this.nUD_AutosaveInterval.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.nUD_AutosaveInterval.ValueChanged += new System.EventHandler(this.nUD_AutosaveInterval_ValueChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(160, 235);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 20);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "min.";
-            // 
-            // btn_AutosavePath
-            // 
-            this.btn_AutosavePath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
-            this.btn_AutosavePath.FlatAppearance.BorderSize = 0;
-            this.btn_AutosavePath.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_AutosavePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_AutosavePath.ForeColor = System.Drawing.Color.White;
-            this.btn_AutosavePath.Location = new System.Drawing.Point(442, 233);
-            this.btn_AutosavePath.Name = "btn_AutosavePath";
-            this.btn_AutosavePath.Size = new System.Drawing.Size(26, 26);
-            this.btn_AutosavePath.TabIndex = 28;
-            this.btn_AutosavePath.Text = "...";
-            this.btn_AutosavePath.UseVisualStyleBackColor = false;
-            this.btn_AutosavePath.Click += new System.EventHandler(this.btn_AutosavePath_Click);
-            // 
             // btn_RButtonPorts
             // 
             this.btn_RButtonPorts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
@@ -713,6 +652,82 @@
             this.btn_RPrinters.TabIndex = 20;
             this.btn_RPrinters.UseVisualStyleBackColor = false;
             this.btn_RPrinters.Click += new System.EventHandler(this.btn_RPrinters_Click);
+            // 
+            // tab_About
+            // 
+            this.tab_About.Controls.Add(this.label17);
+            this.tab_About.Location = new System.Drawing.Point(4, 5);
+            this.tab_About.Name = "tab_About";
+            this.tab_About.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_About.Size = new System.Drawing.Size(572, 387);
+            this.tab_About.TabIndex = 4;
+            this.tab_About.Text = "About";
+            this.tab_About.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label17.Location = new System.Drawing.Point(6, 3);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(65, 24);
+            this.label17.TabIndex = 15;
+            this.label17.Text = "About";
+            // 
+            // pnl_ControlBox
+            // 
+            this.pnl_ControlBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.pnl_ControlBox.Controls.Add(this.btn_Exit);
+            this.pnl_ControlBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnl_ControlBox.Location = new System.Drawing.Point(0, 0);
+            this.pnl_ControlBox.Name = "pnl_ControlBox";
+            this.pnl_ControlBox.Size = new System.Drawing.Size(836, 30);
+            this.pnl_ControlBox.TabIndex = 4;
+            this.pnl_ControlBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnl_ControlBox_MouseDown);
+            // 
+            // btn_Exit
+            // 
+            this.btn_Exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.btn_Exit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Exit.BackgroundImage")));
+            this.btn_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Exit.FlatAppearance.BorderSize = 0;
+            this.btn_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Exit.Location = new System.Drawing.Point(808, 2);
+            this.btn_Exit.Name = "btn_Exit";
+            this.btn_Exit.Size = new System.Drawing.Size(25, 25);
+            this.btn_Exit.TabIndex = 0;
+            this.btn_Exit.UseVisualStyleBackColor = false;
+            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel2.Controls.Add(this.tabControl1, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.pnl_Menu, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 30);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(836, 402);
+            this.tableLayoutPanel2.TabIndex = 5;
+            // 
+            // pnl_Menu
+            // 
+            this.pnl_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(118)))), ((int)(((byte)(210)))));
+            this.pnl_Menu.Controls.Add(this.btn_About);
+            this.pnl_Menu.Controls.Add(this.btn_Settings);
+            this.pnl_Menu.Controls.Add(this.btn_Media);
+            this.pnl_Menu.Controls.Add(this.btn_Queue);
+            this.pnl_Menu.Controls.Add(this.btn_Dashboard);
+            this.pnl_Menu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnl_Menu.Location = new System.Drawing.Point(0, 0);
+            this.pnl_Menu.Margin = new System.Windows.Forms.Padding(0);
+            this.pnl_Menu.Name = "pnl_Menu";
+            this.pnl_Menu.Size = new System.Drawing.Size(250, 402);
+            this.pnl_Menu.TabIndex = 6;
             // 
             // btn_About
             // 
@@ -805,20 +820,6 @@
             this.btn_Dashboard.UseVisualStyleBackColor = false;
             this.btn_Dashboard.Click += new System.EventHandler(this.btn_Dashboard_Click);
             // 
-            // btn_Exit
-            // 
-            this.btn_Exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.btn_Exit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Exit.BackgroundImage")));
-            this.btn_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Exit.FlatAppearance.BorderSize = 0;
-            this.btn_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Exit.Location = new System.Drawing.Point(808, 2);
-            this.btn_Exit.Name = "btn_Exit";
-            this.btn_Exit.Size = new System.Drawing.Size(25, 25);
-            this.btn_Exit.TabIndex = 0;
-            this.btn_Exit.UseVisualStyleBackColor = false;
-            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
-            // 
             // tmr_Autosaver
             // 
             this.tmr_Autosaver.Tick += new System.EventHandler(this.tmr_Autosaver_Tick);
@@ -851,12 +852,12 @@
             this.tab_Media.PerformLayout();
             this.tab_Settings.ResumeLayout(false);
             this.tab_Settings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nUD_AutosaveInterval)).EndInit();
             this.tab_About.ResumeLayout(false);
             this.tab_About.PerformLayout();
             this.pnl_ControlBox.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.pnl_Menu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nUD_AutosaveInterval)).EndInit();
             this.ResumeLayout(false);
 
         }
