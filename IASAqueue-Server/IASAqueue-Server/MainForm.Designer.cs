@@ -76,6 +76,7 @@
             this.tab_About = new System.Windows.Forms.TabPage();
             this.label17 = new System.Windows.Forms.Label();
             this.pnl_ControlBox = new System.Windows.Forms.Panel();
+            this.lbl_Title = new System.Windows.Forms.Label();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.pnl_Menu = new System.Windows.Forms.Panel();
@@ -677,6 +678,7 @@
             // pnl_ControlBox
             // 
             this.pnl_ControlBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.pnl_ControlBox.Controls.Add(this.lbl_Title);
             this.pnl_ControlBox.Controls.Add(this.btn_Exit);
             this.pnl_ControlBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_ControlBox.Location = new System.Drawing.Point(0, 0);
@@ -684,6 +686,17 @@
             this.pnl_ControlBox.Size = new System.Drawing.Size(836, 30);
             this.pnl_ControlBox.TabIndex = 4;
             this.pnl_ControlBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnl_ControlBox_MouseDown);
+            // 
+            // lbl_Title
+            // 
+            this.lbl_Title.AutoSize = true;
+            this.lbl_Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_Title.ForeColor = System.Drawing.Color.White;
+            this.lbl_Title.Location = new System.Drawing.Point(3, 6);
+            this.lbl_Title.Name = "lbl_Title";
+            this.lbl_Title.Size = new System.Drawing.Size(85, 17);
+            this.lbl_Title.TabIndex = 1;
+            this.lbl_Title.Text = "IASA Queue";
             // 
             // btn_Exit
             // 
@@ -856,6 +869,7 @@
             this.tab_About.ResumeLayout(false);
             this.tab_About.PerformLayout();
             this.pnl_ControlBox.ResumeLayout(false);
+            this.pnl_ControlBox.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.pnl_Menu.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -922,6 +936,7 @@
         private System.Windows.Forms.Timer tmr_Autosaver;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label lbl_Title;
     }
 }
 
