@@ -12,13 +12,28 @@ using System.Windows.Forms;
 
 namespace IASAqueue_Server
 {
+
+
     partial class Monitor : Form
     {
+        class Operator
+        {
+            public TableLayoutPanel panel;
+            public Label number;
+            public Operator(TableLayoutPanel panel, Label number)
+            {
+                this.panel = panel;
+                this.number = number;
+            }
+        }
+
         Model global;
+        Operator[] operators;
         public Monitor(Model global)
         {
             InitializeComponent();
             this.global = global;
+            
         }
 
         private void Monitor_KeyPress(object sender, KeyPressEventArgs e)
@@ -39,42 +54,30 @@ namespace IASAqueue_Server
 
         private void Monitor_Load(object sender, EventArgs e)
         {
-            Reload();
+            operators = new Operator[]{ new Operator(tableLayoutPanel3,label1), new Operator(tableLayoutPanel4, label2), new Operator(tableLayoutPanel5, label3), new Operator(tableLayoutPanel6, label4), new Operator(tableLayoutPanel7, label5) };
+            foreach (User u in global.users.Values)
+                u.UserOnline += Usr_UserOnline;
+            Reload();           
             this.Activate();
             this.Focus();
         }
 
         private void Usr_UserOnline(object sender, EventArgs e)
         {
-            Reload();
+            if (!IsDisposed)           
+                BeginInvoke((MethodInvoker)(() => Reload()));
         }
 
-        
+
         private void Reload()
         {
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.ColumnStyles.Clear();
-            tableLayoutPanel1.RowStyles.Clear();
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 80F));
-            foreach (User usr in global.users.Values)
+            lbl_Next.Text = "You are next: " + global.queue.Predict(3);
+            lbl_Wait.Text = "Waiting time: " + global.queue.Average().ToString(@"hh\:mm\:ss");
+            foreach (User u in global.users.Values)
             {
-                if (usr.Online)
-                {
-                    tableLayoutPanel1.ColumnCount++;
-                    tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 0.50F));
-                }
-                usr.UserOnline += Usr_UserOnline;
-                
+                operators[u.Order - 1].panel.Enabled = u.Online;
+                operators[u.Order - 1].number.Text = u.Student > 0 ? u.Student.ToString() : "-";
             }
-            for (int i = 0; i < tableLayoutPanel1.ColumnCount - 1; i++)
-            {
-                tableLayoutPanel1.ColumnStyles[i] = new ColumnStyle(SizeType.Percent, (int)((100 - 0.50) / (tableLayoutPanel1.ColumnCount - 1)));
-                this.tableLayoutPanel1.BeginInvoke((MethodInvoker)(()=> this.tableLayoutPanel1.Controls.Add(new Label() { Text = global.users.Keys.ElementAt(i), ForeColor=Color.Yellow, Font = new Font(FontFamily.GenericSerif, 30), BackColor=Color.Transparent, Location = new Point((int)tableLayoutPanel1.ColumnStyles[i].Width/2, (int)tableLayoutPanel1.RowStyles[0].Height/2)}, i, 0)));
-            }
-
         }
 
         private void tableLayoutPanel1_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
@@ -96,7 +99,7 @@ namespace IASAqueue_Server
                 {
                     rectangle.Width -= 1;
                 }
-                if (e.Column < panel.ColumnCount - 1)
+                if (e.Column < panel.ColumnCount)
                     e.Graphics.DrawRectangle(pen, rectangle);
             }
         }

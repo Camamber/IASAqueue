@@ -15,23 +15,17 @@ namespace IASAqueue_Server
         private Status status;
         int port;
         static TcpListener listener;
-        RichTextBox logger;
+        List<TcpClient> clients;
         public event EventHandler StatusChanged;
         Model global;
-
-        protected virtual void OnStatusChanged(EventArgs e)
-        {
-            if (StatusChanged != null)
-                StatusChanged(this, e);
-        }
-
-        public Server(int port, RichTextBox richtextbox, Model global )
+     
+        public Server(int port, Model global )
         {
             this.port = port;
-            logger = richtextbox;
             listener = new TcpListener(IPAddress.Parse("127.0.0.1"), port);
             status = Status.Offline;
             this.global = global;
+            clients = new List<TcpClient>();
         }
 
         public void Start()
@@ -44,10 +38,15 @@ namespace IASAqueue_Server
                 while (status == Status.Online)
                 {
                     TcpClient client = listener.AcceptTcpClient();
+                    clients.Add(client);
                     ClientObject clientObject = new ClientObject(client, global);
 
                     Thread clientThread = new Thread(new ThreadStart(clientObject.Process));
                     clientThread.Start();
+
+                    List<TcpClient> cl = clients.FindAll(x => x.Connected == false);
+                    foreach (TcpClient c in cl)
+                        clients.Remove(c);
                 }
             }
             catch (Exception ex)
@@ -56,17 +55,25 @@ namespace IASAqueue_Server
             }
             finally
             {
-                if (listener != null)
-                    listener.Stop();
-                global.PrintLogs("Server is down");
-                GetSetStatus = Status.Offline;
+                Stop();
             }
         }
 
         public void Stop()
         {
-            status = Status.Offline;
-            listener.Stop();
+            if (listener != null)
+                listener.Stop();
+            GetSetStatus = Status.Offline;
+
+            if (clients.Count > 0)
+            {
+                foreach (TcpClient c in clients)
+                {
+                    if (c.Connected)
+                        c.Close();
+                }
+            }
+            clients.Clear();
         }
 
         public Status GetSetStatus
@@ -77,6 +84,12 @@ namespace IASAqueue_Server
                 status = value;
                 OnStatusChanged(new EventArgs());
             }
+        }
+
+        protected virtual void OnStatusChanged(EventArgs e)
+        {
+            if (StatusChanged != null)
+                StatusChanged(this, e);
         }
     }
 }

@@ -9,9 +9,10 @@ namespace IASAqueue_Server
     class User
     {
         private string login;
-        private string password;
         private string number;
         private bool online;
+        private int order;
+        private int student;
 
         public event EventHandler UserOnline;
         protected virtual void OnUserOnline(EventArgs e)
@@ -19,23 +20,19 @@ namespace IASAqueue_Server
             if (UserOnline != null)
                 UserOnline(this, e);
         }
-        public User(string login, string password)
+        public User(string login, int order)
         {
             this.login = login;
-            this.password = password;
+            this.order = order; 
             this.online = false;
+            student = 0;
         }
 
         public string Login
         {
             get { return login; }
         }
-
-        public string Password
-        {
-            get { return password; }
-        }
-
+     
         public string Number
         {
             get { return number; }
@@ -48,9 +45,20 @@ namespace IASAqueue_Server
             set { online = value; OnUserOnline(new EventArgs()); }
         }
 
+        public int Order
+        {
+            get { return order; }
+        }
+
+        public int Student
+        {
+            get { return student; }
+            set { student = value; OnUserOnline(new EventArgs()); }
+        }
+    
         public bool isEmpty()
         {
-            return login.Length == 0 && password.Length == 0;
+            return login.Length == 0;
         }
     }
 }

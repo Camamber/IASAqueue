@@ -12,14 +12,21 @@ namespace IASAqueue_Server
     class Request
     {
         public string Login;
-        public string Message;
+        public string Command;
+        public Argument Arguments;
+    }
+    class Argument
+    {
+        public int Integers;
+        public string Strings;
     }
 
     class ClientObject
     {
-        public TcpClient client;
+        TcpClient client;
         User user;
         Model global;
+           
         public ClientObject(TcpClient tcpClient, Model global)
         {
             client = tcpClient;
@@ -29,54 +36,67 @@ namespace IASAqueue_Server
         public void Process()
         {
             NetworkStream stream = null;
+            bool loop = true;
+            byte[] data = new byte[1024];
+
             try
             {
                 stream = client.GetStream();
-                byte[] data = new byte[1024];
-                while (true)
+                while (loop)
                 {
                     StringBuilder builder = new StringBuilder();
                     int bytes = 0;
                     string response = "";
+
                     do
                     {
                         bytes = stream.Read(data, 0, data.Length);
                         builder.Append(Encoding.UTF8.GetString(data, 0, bytes));
                     }
                     while (stream.DataAvailable);
+
                     string request = builder.ToString();
+                    if (request == "")
+                        continue;
 
-                    if (user == null)
-                    {
-                        if (global.users.Keys.Contains(request))
-                        {
-                            user = global.users[request];
-                            user.Online = true;
-                            global.PrintLogs(request + " connected!");                      
-                            response = "OK!";
-                        }
-                        else
-                        {
-                            response = "Wrong username";
-                            global.PrintLogs("Unknown user: " + request);
-                        }
-                    }
-                    else
-                    {
-                        Request message = JsonConvert.DeserializeObject<Request>(builder.ToString());
+                    Request message = JsonConvert.DeserializeObject<Request>(builder.ToString());
+                    global.PrintLogs(message.Login + ": " + message.Command);
 
-                        global.PrintLogs(message.Login + ": " + message.Message);
-                        if(message.Message.Equals("Next"))
-                        {
-                            response = global.queue.Next().ToString();
-                        }
-                        else
-                        {
+                    switch (message.Command)
+                    {
+                        case "Login":
+                            if (global.users.Keys.Contains(message.Login) && !global.users[message.Login].Online)
+                            {
+                                user = global.users[message.Login];
+                                user.Online = true;
+                                global.PrintLogs(message.Login + " connected!");
+                                response = "Connected";
+                            }
+                            else
+                            {
+                                response = "Wrong username or user already logged in";
+                                global.PrintLogs("Unknown user: " + message.Login);
+                            }
+                            break;
+                        case "Next":
+                            user.Student = global.queue.Next();
+                            response = user.Student.ToString();
+                            break;
+                        case "Skip":
+                            user.Student = global.queue.Skip(message.Arguments.Integers);
+                            response = user.Student.ToString();
+                            break;
+                        case "Queue":
+                            response = global.queue.Length.ToString();
+                            break;
+                        case "Exit":
+                            loop = false;
+                            response = "Goodbye";
+                            break;
+                        default:
                             response = "Unknown command!";
-                        }
-                       
+                            break;
                     }
-
                     data = Encoding.UTF8.GetBytes(response);
                     stream.Write(data, 0, data.Length);
                 }
@@ -92,12 +112,11 @@ namespace IASAqueue_Server
                     stream.Close();
                 if (client != null)
                     client.Close();
-                if (client != null)
+                if (user != null)
                 {
                     global.PrintLogs(user.Login + " disconnected!");
                     user.Online = false;
                 }
-
             }
         }   
     }
