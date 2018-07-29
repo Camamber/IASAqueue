@@ -22,7 +22,7 @@ namespace IASAqueue_Server
         public Server(int port, Model global )
         {
             this.port = port;
-            listener = new TcpListener(IPAddress.Parse("127.0.0.1"), port);
+            listener = new TcpListener(IPAddress.Parse(global.settings.IP), port);
             status = Status.Offline;
             this.global = global;
             clients = new List<TcpClient>();

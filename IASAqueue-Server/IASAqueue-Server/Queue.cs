@@ -15,6 +15,7 @@ namespace IASAqueue_Server
         Stopwatch timer;
         List<TimeSpan> timing;
         private int last;
+        public event EventHandler QueueUpdated;        
 
         public Queue()
         {
@@ -24,21 +25,65 @@ namespace IASAqueue_Server
             timing = new List<TimeSpan>();
         }
 
+        protected virtual void OnQueueUpdated(EventArgs e)
+        {
+            if (QueueUpdated != null)
+                QueueUpdated(this, e);
+        }
+
         public int Add()
         {
             last++;
             queue.Add(last);
+            OnQueueUpdated(new EventArgs());
             return last;
         }
+        public int Add(int number)
+        {
+            queue.Add(number);
+            OnQueueUpdated(new EventArgs());
+            return last;
+        }
+
+        public void Remove(int number)
+        {
+            queue.Remove(number);
+            OnQueueUpdated(new EventArgs());
+        }
+
+        public int Move(int number, int offset)
+        {
+            int index = queue.IndexOf(number);
+            if (index + offset < queue.Count&& index + offset>=0)
+            {
+                index += offset;
+                queue.Remove(number);
+                queue.Insert(index, number);
+
+            }
+            OnQueueUpdated(new EventArgs());
+            return index;
+        }
+       
 
         public int Last
         {
             get { return last; }
         }
 
+        public int[] QueueArr
+        {
+            get { return queue.ToArray(); }
+        }
+
         public int Length
         {
             get { return queue.Count; }
+        }
+
+        public bool isContain(int number)
+        {
+            return queue.Contains(number);
         }
 
         public int Next()
@@ -52,6 +97,7 @@ namespace IASAqueue_Server
                 queue.RemoveAt(0);
 
             }
+            OnQueueUpdated(new EventArgs());
             return current;
         }
 
@@ -101,6 +147,7 @@ namespace IASAqueue_Server
             SerializedQueue restore = JsonConvert.DeserializeObject<SerializedQueue>(File.ReadAllText(file));
             this.queue = restore.Queue;
             this.last = restore.Last;
+            OnQueueUpdated(new EventArgs());
         }
     }
 

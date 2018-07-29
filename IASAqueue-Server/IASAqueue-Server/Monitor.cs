@@ -27,12 +27,12 @@ namespace IASAqueue_Server
             }
         }
 
-        Model global;
+        Model model;
         Operator[] operators;
-        public Monitor(Model global)
+        public Monitor(Model model)
         {
             InitializeComponent();
-            this.global = global;
+            this.model = model;
             
         }
 
@@ -42,11 +42,7 @@ namespace IASAqueue_Server
                 this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            global.PrintLogs("#" + global.queue.Add().ToString() + " added to queue!");
-        }
-
+      
         private void btn_Close_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -55,11 +51,13 @@ namespace IASAqueue_Server
         private void Monitor_Load(object sender, EventArgs e)
         {
             operators = new Operator[]{ new Operator(tableLayoutPanel3,label1), new Operator(tableLayoutPanel4, label2), new Operator(tableLayoutPanel5, label3), new Operator(tableLayoutPanel6, label4), new Operator(tableLayoutPanel7, label5) };
-            foreach (User u in global.users.Values)
+            foreach (User u in model.users.Values)
                 u.UserOnline += Usr_UserOnline;
             Reload();           
             this.Activate();
             this.Focus();
+            tmr_Media.Interval = model.settings.Media_interval*1000;
+            tmr_Media.Start();
         }
 
         private void Usr_UserOnline(object sender, EventArgs e)
@@ -71,9 +69,9 @@ namespace IASAqueue_Server
 
         private void Reload()
         {
-            lbl_Next.Text = "You are next: " + global.queue.Predict(3);
-            lbl_Wait.Text = "Waiting time: " + global.queue.Average().ToString(@"hh\:mm\:ss");
-            foreach (User u in global.users.Values)
+            lbl_Next.Text = "You are next: " + model.queue.Predict(3);
+            lbl_Wait.Text = "Waiting time: " + model.queue.Average().ToString(@"hh\:mm\:ss");
+            foreach (User u in model.users.Values)
             {
                 operators[u.Order - 1].panel.Enabled = u.Online;
                 operators[u.Order - 1].number.Text = u.Student > 0 ? u.Student.ToString() : "-";
@@ -101,6 +99,15 @@ namespace IASAqueue_Server
                 }
                 if (e.Column < panel.ColumnCount)
                     e.Graphics.DrawRectangle(pen, rectangle);
+            }
+        }
+
+        private void tmr_Media_Tick(object sender, EventArgs e)
+        {
+            if (model.media.Played && !model.media.isEmpty)
+            {               
+                pb_Media.Image = Image.FromFile(model.media.Get());
+                model.media.Current++;
             }
         }
     }

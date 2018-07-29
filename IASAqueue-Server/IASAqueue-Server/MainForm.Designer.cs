@@ -46,11 +46,25 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab_Dashboard = new System.Windows.Forms.TabPage();
             this.tab_Queue = new System.Windows.Forms.TabPage();
+            this.btn_PrintQueue = new System.Windows.Forms.Button();
+            this.btn_RemoveQueue = new System.Windows.Forms.Button();
+            this.lbl_AddQueue = new System.Windows.Forms.Label();
+            this.tb_AddQueue = new System.Windows.Forms.TextBox();
+            this.btn_DownQueue = new System.Windows.Forms.Button();
+            this.btn_UpQueue = new System.Windows.Forms.Button();
+            this.btn_AddQueue = new System.Windows.Forms.Button();
+            this.lb_Queue = new System.Windows.Forms.ListBox();
             this.label15 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.btn_LoadQueue = new System.Windows.Forms.Button();
             this.btn_SaveQueue = new System.Windows.Forms.Button();
             this.tab_Media = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lbl_MediaInterval = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.btn_RemoveMedia = new System.Windows.Forms.Button();
+            this.btn_AddMedia = new System.Windows.Forms.Button();
+            this.lb_Media = new System.Windows.Forms.ListBox();
             this.label16 = new System.Windows.Forms.Label();
             this.tab_Settings = new System.Windows.Forms.TabPage();
             this.btn_AutosavePath = new System.Windows.Forms.Button();
@@ -95,6 +109,7 @@
             this.tab_Dashboard.SuspendLayout();
             this.tab_Queue.SuspendLayout();
             this.tab_Media.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tab_Settings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nUD_AutosaveInterval)).BeginInit();
             this.tab_About.SuspendLayout();
@@ -296,6 +311,14 @@
             // 
             // tab_Queue
             // 
+            this.tab_Queue.Controls.Add(this.btn_PrintQueue);
+            this.tab_Queue.Controls.Add(this.btn_RemoveQueue);
+            this.tab_Queue.Controls.Add(this.lbl_AddQueue);
+            this.tab_Queue.Controls.Add(this.tb_AddQueue);
+            this.tab_Queue.Controls.Add(this.btn_DownQueue);
+            this.tab_Queue.Controls.Add(this.btn_UpQueue);
+            this.tab_Queue.Controls.Add(this.btn_AddQueue);
+            this.tab_Queue.Controls.Add(this.lb_Queue);
             this.tab_Queue.Controls.Add(this.label15);
             this.tab_Queue.Controls.Add(this.button5);
             this.tab_Queue.Controls.Add(this.btn_LoadQueue);
@@ -307,6 +330,112 @@
             this.tab_Queue.TabIndex = 1;
             this.tab_Queue.Text = "Queue";
             this.tab_Queue.UseVisualStyleBackColor = true;
+            // 
+            // btn_PrintQueue
+            // 
+            this.btn_PrintQueue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
+            this.btn_PrintQueue.BackgroundImage = global::IASAqueue_Server.Properties.Resources.ic_print;
+            this.btn_PrintQueue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_PrintQueue.Enabled = false;
+            this.btn_PrintQueue.FlatAppearance.BorderSize = 0;
+            this.btn_PrintQueue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_PrintQueue.Location = new System.Drawing.Point(529, 217);
+            this.btn_PrintQueue.Name = "btn_PrintQueue";
+            this.btn_PrintQueue.Size = new System.Drawing.Size(32, 32);
+            this.btn_PrintQueue.TabIndex = 23;
+            this.btn_PrintQueue.UseVisualStyleBackColor = false;
+            this.btn_PrintQueue.Click += new System.EventHandler(this.btn_PrintQueue_Click);
+            // 
+            // btn_RemoveQueue
+            // 
+            this.btn_RemoveQueue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
+            this.btn_RemoveQueue.BackgroundImage = global::IASAqueue_Server.Properties.Resources.ic_remove_circle;
+            this.btn_RemoveQueue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_RemoveQueue.Enabled = false;
+            this.btn_RemoveQueue.FlatAppearance.BorderSize = 0;
+            this.btn_RemoveQueue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_RemoveQueue.Location = new System.Drawing.Point(529, 179);
+            this.btn_RemoveQueue.Name = "btn_RemoveQueue";
+            this.btn_RemoveQueue.Size = new System.Drawing.Size(32, 32);
+            this.btn_RemoveQueue.TabIndex = 22;
+            this.btn_RemoveQueue.UseVisualStyleBackColor = false;
+            this.btn_RemoveQueue.Click += new System.EventHandler(this.btn_RemoveQueue_Click);
+            // 
+            // lbl_AddQueue
+            // 
+            this.lbl_AddQueue.AutoSize = true;
+            this.lbl_AddQueue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_AddQueue.Location = new System.Drawing.Point(321, 36);
+            this.lbl_AddQueue.Name = "lbl_AddQueue";
+            this.lbl_AddQueue.Size = new System.Drawing.Size(107, 20);
+            this.lbl_AddQueue.TabIndex = 21;
+            this.lbl_AddQueue.Text = "Add in queue:";
+            // 
+            // tb_AddQueue
+            // 
+            this.tb_AddQueue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_AddQueue.Location = new System.Drawing.Point(434, 33);
+            this.tb_AddQueue.Name = "tb_AddQueue";
+            this.tb_AddQueue.Size = new System.Drawing.Size(89, 26);
+            this.tb_AddQueue.TabIndex = 20;
+            this.tb_AddQueue.TextChanged += new System.EventHandler(this.tb_AddQueue_TextChanged);
+            this.tb_AddQueue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_AddQueue_KeyPress);
+            // 
+            // btn_DownQueue
+            // 
+            this.btn_DownQueue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
+            this.btn_DownQueue.BackgroundImage = global::IASAqueue_Server.Properties.Resources.ic_arrow_drop_down_circle;
+            this.btn_DownQueue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_DownQueue.Enabled = false;
+            this.btn_DownQueue.FlatAppearance.BorderSize = 0;
+            this.btn_DownQueue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_DownQueue.Location = new System.Drawing.Point(529, 141);
+            this.btn_DownQueue.Name = "btn_DownQueue";
+            this.btn_DownQueue.Size = new System.Drawing.Size(32, 32);
+            this.btn_DownQueue.TabIndex = 19;
+            this.btn_DownQueue.UseVisualStyleBackColor = false;
+            this.btn_DownQueue.Click += new System.EventHandler(this.btn_DownQueue_Click);
+            // 
+            // btn_UpQueue
+            // 
+            this.btn_UpQueue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
+            this.btn_UpQueue.BackgroundImage = global::IASAqueue_Server.Properties.Resources.ic_arrow_drop_up_circle;
+            this.btn_UpQueue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_UpQueue.Enabled = false;
+            this.btn_UpQueue.FlatAppearance.BorderSize = 0;
+            this.btn_UpQueue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_UpQueue.Location = new System.Drawing.Point(529, 103);
+            this.btn_UpQueue.Name = "btn_UpQueue";
+            this.btn_UpQueue.Size = new System.Drawing.Size(32, 32);
+            this.btn_UpQueue.TabIndex = 18;
+            this.btn_UpQueue.UseVisualStyleBackColor = false;
+            this.btn_UpQueue.Click += new System.EventHandler(this.btn_UpQueue_Click);
+            // 
+            // btn_AddQueue
+            // 
+            this.btn_AddQueue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
+            this.btn_AddQueue.BackgroundImage = global::IASAqueue_Server.Properties.Resources.ic_add_circle;
+            this.btn_AddQueue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_AddQueue.Enabled = false;
+            this.btn_AddQueue.FlatAppearance.BorderSize = 0;
+            this.btn_AddQueue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_AddQueue.Location = new System.Drawing.Point(529, 65);
+            this.btn_AddQueue.Name = "btn_AddQueue";
+            this.btn_AddQueue.Size = new System.Drawing.Size(32, 32);
+            this.btn_AddQueue.TabIndex = 17;
+            this.btn_AddQueue.UseVisualStyleBackColor = false;
+            this.btn_AddQueue.Click += new System.EventHandler(this.btn_AddQueue_Click);
+            // 
+            // lb_Queue
+            // 
+            this.lb_Queue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lb_Queue.FormattingEnabled = true;
+            this.lb_Queue.ItemHeight = 20;
+            this.lb_Queue.Location = new System.Drawing.Point(325, 65);
+            this.lb_Queue.Name = "lb_Queue";
+            this.lb_Queue.Size = new System.Drawing.Size(198, 284);
+            this.lb_Queue.TabIndex = 16;
+            this.lb_Queue.SelectedIndexChanged += new System.EventHandler(this.lb_Queue_SelectedIndexChanged);
             // 
             // label15
             // 
@@ -325,7 +454,7 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(189, 243);
+            this.button5.Location = new System.Drawing.Point(37, 143);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(199, 29);
             this.button5.TabIndex = 5;
@@ -339,7 +468,7 @@
             this.btn_LoadQueue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_LoadQueue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_LoadQueue.ForeColor = System.Drawing.Color.White;
-            this.btn_LoadQueue.Location = new System.Drawing.Point(383, 124);
+            this.btn_LoadQueue.Location = new System.Drawing.Point(141, 103);
             this.btn_LoadQueue.Name = "btn_LoadQueue";
             this.btn_LoadQueue.Size = new System.Drawing.Size(95, 34);
             this.btn_LoadQueue.TabIndex = 4;
@@ -354,7 +483,7 @@
             this.btn_SaveQueue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_SaveQueue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_SaveQueue.ForeColor = System.Drawing.Color.White;
-            this.btn_SaveQueue.Location = new System.Drawing.Point(111, 124);
+            this.btn_SaveQueue.Location = new System.Drawing.Point(37, 103);
             this.btn_SaveQueue.Name = "btn_SaveQueue";
             this.btn_SaveQueue.Size = new System.Drawing.Size(95, 34);
             this.btn_SaveQueue.TabIndex = 3;
@@ -364,6 +493,12 @@
             // 
             // tab_Media
             // 
+            this.tab_Media.Controls.Add(this.label6);
+            this.tab_Media.Controls.Add(this.lbl_MediaInterval);
+            this.tab_Media.Controls.Add(this.numericUpDown1);
+            this.tab_Media.Controls.Add(this.btn_RemoveMedia);
+            this.tab_Media.Controls.Add(this.btn_AddMedia);
+            this.tab_Media.Controls.Add(this.lb_Media);
             this.tab_Media.Controls.Add(this.label16);
             this.tab_Media.Location = new System.Drawing.Point(4, 5);
             this.tab_Media.Name = "tab_Media";
@@ -372,6 +507,91 @@
             this.tab_Media.TabIndex = 2;
             this.tab_Media.Text = "Media";
             this.tab_Media.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(233, 40);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(38, 20);
+            this.label6.TabIndex = 33;
+            this.label6.Text = "sec.";
+            // 
+            // lbl_MediaInterval
+            // 
+            this.lbl_MediaInterval.AutoSize = true;
+            this.lbl_MediaInterval.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_MediaInterval.Location = new System.Drawing.Point(28, 40);
+            this.lbl_MediaInterval.Name = "lbl_MediaInterval";
+            this.lbl_MediaInterval.Size = new System.Drawing.Size(110, 20);
+            this.lbl_MediaInterval.TabIndex = 32;
+            this.lbl_MediaInterval.Text = "Media interval:";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.numericUpDown1.Location = new System.Drawing.Point(144, 38);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(83, 26);
+            this.numericUpDown1.TabIndex = 31;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            15,
+            0,
+            0,
+            0});
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
+            // btn_RemoveMedia
+            // 
+            this.btn_RemoveMedia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
+            this.btn_RemoveMedia.BackgroundImage = global::IASAqueue_Server.Properties.Resources.ic_remove_circle;
+            this.btn_RemoveMedia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_RemoveMedia.Enabled = false;
+            this.btn_RemoveMedia.FlatAppearance.BorderSize = 0;
+            this.btn_RemoveMedia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_RemoveMedia.Location = new System.Drawing.Point(324, 108);
+            this.btn_RemoveMedia.Name = "btn_RemoveMedia";
+            this.btn_RemoveMedia.Size = new System.Drawing.Size(32, 32);
+            this.btn_RemoveMedia.TabIndex = 30;
+            this.btn_RemoveMedia.UseVisualStyleBackColor = false;
+            this.btn_RemoveMedia.Click += new System.EventHandler(this.btn_RemoveMedia_Click);
+            // 
+            // btn_AddMedia
+            // 
+            this.btn_AddMedia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
+            this.btn_AddMedia.BackgroundImage = global::IASAqueue_Server.Properties.Resources.ic_add_circle;
+            this.btn_AddMedia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_AddMedia.FlatAppearance.BorderSize = 0;
+            this.btn_AddMedia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_AddMedia.Location = new System.Drawing.Point(324, 70);
+            this.btn_AddMedia.Name = "btn_AddMedia";
+            this.btn_AddMedia.Size = new System.Drawing.Size(32, 32);
+            this.btn_AddMedia.TabIndex = 25;
+            this.btn_AddMedia.UseVisualStyleBackColor = false;
+            this.btn_AddMedia.Click += new System.EventHandler(this.btn_AddMedia_Click);
+            // 
+            // lb_Media
+            // 
+            this.lb_Media.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lb_Media.FormattingEnabled = true;
+            this.lb_Media.HorizontalScrollbar = true;
+            this.lb_Media.ItemHeight = 20;
+            this.lb_Media.Location = new System.Drawing.Point(32, 70);
+            this.lb_Media.Name = "lb_Media";
+            this.lb_Media.Size = new System.Drawing.Size(286, 304);
+            this.lb_Media.TabIndex = 24;
+            this.lb_Media.SelectedIndexChanged += new System.EventHandler(this.lb_Media_SelectedIndexChanged);
             // 
             // label16
             // 
@@ -553,6 +773,7 @@
             this.tb_IP.Size = new System.Drawing.Size(91, 26);
             this.tb_IP.TabIndex = 3;
             this.tb_IP.Text = "127.0.0.1";
+            this.tb_IP.TextChanged += new System.EventHandler(this.tb_IP_TextChanged);
             // 
             // tb_Port
             // 
@@ -863,6 +1084,7 @@
             this.tab_Queue.PerformLayout();
             this.tab_Media.ResumeLayout(false);
             this.tab_Media.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tab_Settings.ResumeLayout(false);
             this.tab_Settings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nUD_AutosaveInterval)).EndInit();
@@ -937,6 +1159,20 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label lbl_Title;
+        private System.Windows.Forms.Button btn_RemoveQueue;
+        private System.Windows.Forms.Label lbl_AddQueue;
+        private System.Windows.Forms.TextBox tb_AddQueue;
+        private System.Windows.Forms.Button btn_DownQueue;
+        private System.Windows.Forms.Button btn_UpQueue;
+        private System.Windows.Forms.Button btn_AddQueue;
+        private System.Windows.Forms.ListBox lb_Queue;
+        private System.Windows.Forms.Button btn_PrintQueue;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Button btn_RemoveMedia;
+        private System.Windows.Forms.Button btn_AddMedia;
+        private System.Windows.Forms.ListBox lb_Media;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbl_MediaInterval;
     }
 }
 

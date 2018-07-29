@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
             this.btn_Close = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_Title = new System.Windows.Forms.Label();
@@ -49,10 +49,11 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_title1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pb_Media = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbl_Wait = new System.Windows.Forms.Label();
             this.lbl_Next = new System.Windows.Forms.Label();
+            this.tmr_Media = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -61,23 +62,16 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Media)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(49, 38);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btn_Close
             // 
             this.btn_Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Close.FlatAppearance.BorderSize = 0;
+            this.btn_Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Close.ForeColor = System.Drawing.Color.Yellow;
             this.btn_Close.Location = new System.Drawing.Point(711, 1);
             this.btn_Close.Name = "btn_Close";
             this.btn_Close.Size = new System.Drawing.Size(32, 26);
@@ -89,7 +83,6 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.btn_Close);
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.lbl_Title);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -115,7 +108,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pb_Media, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 45);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -357,17 +350,17 @@
             this.label1.Text = "label1";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // pictureBox1
+            // pb_Media
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::IASAqueue_Server.Properties.Resources.photo5215656423264987270;
-            this.pictureBox1.Location = new System.Drawing.Point(20, 20);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(20);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(480, 284);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.pb_Media.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_Media.Image = global::IASAqueue_Server.Properties.Resources.photo5215656423264987270;
+            this.pb_Media.Location = new System.Drawing.Point(20, 20);
+            this.pb_Media.Margin = new System.Windows.Forms.Padding(20);
+            this.pb_Media.Name = "pb_Media";
+            this.pb_Media.Size = new System.Drawing.Size(480, 284);
+            this.pb_Media.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_Media.TabIndex = 1;
+            this.pb_Media.TabStop = false;
             // 
             // panel2
             // 
@@ -403,6 +396,10 @@
             this.lbl_Next.Text = "You are next: ";
             this.lbl_Next.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // tmr_Media
+            // 
+            this.tmr_Media.Tick += new System.EventHandler(this.tmr_Media_Tick);
+            // 
             // Monitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -425,7 +422,7 @@
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Media)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -433,8 +430,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btn_Close;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbl_Title;
@@ -455,9 +450,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pb_Media;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lbl_Next;
         private System.Windows.Forms.Label lbl_Wait;
+        private System.Windows.Forms.Timer tmr_Media;
     }
 }

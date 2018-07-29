@@ -79,6 +79,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -93,6 +94,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic_power_settings_new_black_48dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Significon-Maximize-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Significon-Minimize-512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Significon-Minimize-5121.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

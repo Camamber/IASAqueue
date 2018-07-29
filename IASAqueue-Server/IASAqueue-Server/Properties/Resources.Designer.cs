@@ -93,6 +93,36 @@ namespace IASAqueue_Server.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_add_circle {
+            get {
+                object obj = ResourceManager.GetObject("ic_add_circle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_arrow_drop_down_circle {
+            get {
+                object obj = ResourceManager.GetObject("ic_arrow_drop_down_circle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_arrow_drop_up_circle {
+            get {
+                object obj = ResourceManager.GetObject("ic_arrow_drop_up_circle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_perm_media30 {
             get {
                 object obj = ResourceManager.GetObject("ic_perm_media30", resourceCulture);
@@ -113,9 +143,29 @@ namespace IASAqueue_Server.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ic_print {
+            get {
+                object obj = ResourceManager.GetObject("ic_print", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ic_refresh_black_48dp {
             get {
                 object obj = ResourceManager.GetObject("ic_refresh_black_48dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ic_remove_circle {
+            get {
+                object obj = ResourceManager.GetObject("ic_remove_circle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

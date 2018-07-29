@@ -27,11 +27,12 @@ namespace IASAqueue_Client
         TcpClient client;
         private NetworkStream stream;
         private int port;
-        const string address = "127.0.0.1";
+        string address = "127.0.0.1";
         private string username;
 
-        public Client(int port, string username)
+        public Client(string address, int port, string username)
         {
+            this.address = address;
             this.port = port;
             this.username = username;
 

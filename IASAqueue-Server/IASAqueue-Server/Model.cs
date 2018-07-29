@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,12 +13,15 @@ namespace IASAqueue_Server
     class Model
     {
         public Dictionary<string, User> users;
-        public Form monitor;
         public Queue queue;
         RichTextBox logger;
-        
-        public Model(RichTextBox rtb, Form monitor)
-        {            
+        public Settings settings;
+        public Media media;
+        public SerialPort mySerialPort;
+        public Printer printer;
+        public Model(RichTextBox rtb)
+        {
+            logger = rtb;
             users = new Dictionary<string, User>()
             {
                 { "user1", new User("user1",1) },
@@ -27,16 +31,16 @@ namespace IASAqueue_Server
                 { "user5", new User("user5",5) }
             };
             queue = new Queue();
-            logger = rtb;
-            this.monitor = monitor;
-
+            settings = new Settings();           
+            media = new Media();
+            mySerialPort = new SerialPort();
+            printer = new Printer("");
         }
+
             
         public void PrintLogs(string msg)
         {
             this.logger.BeginInvoke((MethodInvoker)(() => this.logger.Text = msg + "\n" + this.logger.Text));
         }
-
-
     }
 }

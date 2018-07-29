@@ -23,9 +23,10 @@ namespace IASAqueue_Client
             InitializeComponent();
         }
         private void ControlPanel_Load(object sender, EventArgs e)
-        {          
+        {
             Login();
-            Text = client.Username;
+            if (client != null)
+                lbl_user.Text = client.Username;
         }
 
         private void Login()
@@ -113,12 +114,44 @@ namespace IASAqueue_Client
 
         private void ControlPanel_FormClosing(object sender, FormClosingEventArgs e)
         {
-            client.SendCommand("Exit", new Argument());
+            if (client != null)
+                client.Disconnect();
         }
 
         private void timer_Update_Tick(object sender, EventArgs e)
         {
             CheckQueue();
+        }
+
+        private void btn_Maximized_Click(object sender, EventArgs e)
+        {
+            this.WindowState = this.WindowState == FormWindowState.Normal ? FormWindowState.Maximized : FormWindowState.Normal;
+        }
+
+        private void btn_Minimized_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+
+
+        //Drag form
+
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        private void pnl_ControlBox_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
         }
     }
 

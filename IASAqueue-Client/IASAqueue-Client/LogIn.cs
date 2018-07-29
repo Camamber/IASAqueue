@@ -26,7 +26,7 @@ namespace IASAqueue_Client
             {
                 if (int.TryParse(tb_Port.Text, out port))
                 {
-                    client = new Client(port, tb_Username.Text);
+                    client = new Client(tb_IP.Text ,port, tb_Username.Text);
                     string response = client.Connect();
                     lbl_Info.Text = response;
                     if(response == "Connected")
@@ -50,6 +50,30 @@ namespace IASAqueue_Client
         {
             this.DialogResult = DialogResult.Cancel;
             Close();
+        }
+
+        //Drag form
+
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void tb_IP_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && (e.KeyChar != '.');
         }
     }
 }
