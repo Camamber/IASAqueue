@@ -248,6 +248,14 @@ namespace IASAqueue_Server
         {
             lb_Queue.Items.Clear();
             lb_Queue.Items.AddRange(model.queue.QueueArr.Cast<object>().ToArray());
+            string msg = "";
+
+            for (int i = 0; i < model.users.Count; i++)
+            {
+                msg += String.Format("{0}. - {1}\n", (i + 1).ToString(), model.users.Values.ElementAt(i).Student.ToString());
+            }
+            msg += "Приготовиться: " + model.queue.Predict(3);
+            model.webgui.Update(msg);
         }
 
 
@@ -464,6 +472,22 @@ namespace IASAqueue_Server
             {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void btn_Post_Click(object sender, EventArgs e)
+        {
+            if (tb_token.Text != "")
+            {
+                model.webgui = new WebGUI(tb_token.Text, tb_url.Text, "@lupapupa");
+                string msg = "";
+
+                for(int i =0;i < model.users.Count; i++)
+                {
+                    msg += String.Format("{0}. - {1}\n", (i+1).ToString(), model.users.Values.ElementAt(i).Student.ToString());
+                }
+                msg += "Приготовиться: " + model.queue.Predict(3);
+                model.webgui.Post(msg);
             }
         }
     }

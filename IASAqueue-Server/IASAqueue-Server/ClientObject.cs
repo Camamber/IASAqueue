@@ -91,6 +91,7 @@ namespace IASAqueue_Server
                             break;
                         case "Exit":
                             loop = false;
+                            user.Student = 0;
                             response = "Goodbye";
                             break;
                         default:

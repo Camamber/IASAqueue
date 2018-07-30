@@ -35,7 +35,10 @@ namespace IASAqueue_Client
             using (LogIn login = new LogIn())
             {
                 if (login.ShowDialog(this) == DialogResult.OK)
+                {
                     client = login.client;
+                    lbl_abit.Text = "";
+                }
                 else
                     Close();               
             }

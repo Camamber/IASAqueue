@@ -19,6 +19,7 @@ namespace IASAqueue_Server
         public Media media;
         public SerialPort mySerialPort;
         public Printer printer;
+        public WebGUI webgui;
         public Model(RichTextBox rtb)
         {
             logger = rtb;
@@ -35,6 +36,7 @@ namespace IASAqueue_Server
             media = new Media();
             mySerialPort = new SerialPort();
             printer = new Printer("");
+            webgui = new WebGUI();
         }
 
             

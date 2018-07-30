@@ -103,6 +103,11 @@
             this.tmr_Autosaver = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.tb_token = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btn_Post = new System.Windows.Forms.Button();
+            this.tb_url = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -605,6 +610,11 @@
             // 
             // tab_Settings
             // 
+            this.tab_Settings.Controls.Add(this.label8);
+            this.tab_Settings.Controls.Add(this.tb_url);
+            this.tab_Settings.Controls.Add(this.btn_Post);
+            this.tab_Settings.Controls.Add(this.label7);
+            this.tab_Settings.Controls.Add(this.tb_token);
             this.tab_Settings.Controls.Add(this.btn_AutosavePath);
             this.tab_Settings.Controls.Add(this.label5);
             this.tab_Settings.Controls.Add(this.nUD_AutosaveInterval);
@@ -1062,6 +1072,57 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // tb_token
+            // 
+            this.tb_token.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_token.Location = new System.Drawing.Point(103, 280);
+            this.tb_token.Name = "tb_token";
+            this.tb_token.Size = new System.Drawing.Size(245, 26);
+            this.tb_token.TabIndex = 29;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(6, 283);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(82, 20);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "Bot token:";
+            // 
+            // btn_Post
+            // 
+            this.btn_Post.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
+            this.btn_Post.FlatAppearance.BorderSize = 0;
+            this.btn_Post.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Post.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_Post.ForeColor = System.Drawing.Color.White;
+            this.btn_Post.Location = new System.Drawing.Point(354, 279);
+            this.btn_Post.Name = "btn_Post";
+            this.btn_Post.Size = new System.Drawing.Size(105, 28);
+            this.btn_Post.TabIndex = 31;
+            this.btn_Post.Text = "Post";
+            this.btn_Post.UseVisualStyleBackColor = false;
+            this.btn_Post.Click += new System.EventHandler(this.btn_Post_Click);
+            // 
+            // tb_url
+            // 
+            this.tb_url.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_url.Location = new System.Drawing.Point(103, 312);
+            this.tb_url.Name = "tb_url";
+            this.tb_url.Size = new System.Drawing.Size(245, 26);
+            this.tb_url.TabIndex = 32;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(6, 315);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(64, 20);
+            this.label8.TabIndex = 33;
+            this.label8.Text = "GUI url:";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1173,6 +1234,11 @@
         private System.Windows.Forms.ListBox lb_Media;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lbl_MediaInterval;
+        private System.Windows.Forms.Button btn_Post;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox tb_token;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tb_url;
     }
 }
 
