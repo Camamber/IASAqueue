@@ -69,6 +69,7 @@ namespace IASAqueue_Server
         public int Last
         {
             get { return last; }
+            set { last = value; }
         }
 
         public int[] QueueArr
@@ -109,6 +110,14 @@ namespace IASAqueue_Server
             else
                 queue.Add(num);
             return Next();
+        }
+
+        public void Reset()
+        {
+            queue.Clear();
+            timing.Clear();
+            last = 0;
+            OnQueueUpdated(new EventArgs());
         }
 
         public string Predict(int count)

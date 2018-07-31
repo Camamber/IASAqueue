@@ -46,6 +46,9 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab_Dashboard = new System.Windows.Forms.TabPage();
             this.tab_Queue = new System.Windows.Forms.TabPage();
+            this.btn_UpdateLast = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tb_LastQueue = new System.Windows.Forms.TextBox();
             this.btn_PrintQueue = new System.Windows.Forms.Button();
             this.btn_RemoveQueue = new System.Windows.Forms.Button();
             this.lbl_AddQueue = new System.Windows.Forms.Label();
@@ -55,7 +58,7 @@
             this.btn_AddQueue = new System.Windows.Forms.Button();
             this.lb_Queue = new System.Windows.Forms.ListBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btn_ResetQueue = new System.Windows.Forms.Button();
             this.btn_LoadQueue = new System.Windows.Forms.Button();
             this.btn_SaveQueue = new System.Windows.Forms.Button();
             this.tab_Media = new System.Windows.Forms.TabPage();
@@ -67,6 +70,11 @@
             this.lb_Media = new System.Windows.Forms.ListBox();
             this.label16 = new System.Windows.Forms.Label();
             this.tab_Settings = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tb_url = new System.Windows.Forms.TextBox();
+            this.btn_Post = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tb_token = new System.Windows.Forms.TextBox();
             this.btn_AutosavePath = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.nUD_AutosaveInterval = new System.Windows.Forms.NumericUpDown();
@@ -103,11 +111,6 @@
             this.tmr_Autosaver = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.tb_token = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btn_Post = new System.Windows.Forms.Button();
-            this.tb_url = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -316,6 +319,9 @@
             // 
             // tab_Queue
             // 
+            this.tab_Queue.Controls.Add(this.btn_UpdateLast);
+            this.tab_Queue.Controls.Add(this.label9);
+            this.tab_Queue.Controls.Add(this.tb_LastQueue);
             this.tab_Queue.Controls.Add(this.btn_PrintQueue);
             this.tab_Queue.Controls.Add(this.btn_RemoveQueue);
             this.tab_Queue.Controls.Add(this.lbl_AddQueue);
@@ -325,7 +331,7 @@
             this.tab_Queue.Controls.Add(this.btn_AddQueue);
             this.tab_Queue.Controls.Add(this.lb_Queue);
             this.tab_Queue.Controls.Add(this.label15);
-            this.tab_Queue.Controls.Add(this.button5);
+            this.tab_Queue.Controls.Add(this.btn_ResetQueue);
             this.tab_Queue.Controls.Add(this.btn_LoadQueue);
             this.tab_Queue.Controls.Add(this.btn_SaveQueue);
             this.tab_Queue.Location = new System.Drawing.Point(4, 5);
@@ -335,6 +341,41 @@
             this.tab_Queue.TabIndex = 1;
             this.tab_Queue.Text = "Queue";
             this.tab_Queue.UseVisualStyleBackColor = true;
+            // 
+            // btn_UpdateLast
+            // 
+            this.btn_UpdateLast.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
+            this.btn_UpdateLast.FlatAppearance.BorderSize = 0;
+            this.btn_UpdateLast.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_UpdateLast.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_UpdateLast.ForeColor = System.Drawing.Color.White;
+            this.btn_UpdateLast.Location = new System.Drawing.Point(466, 353);
+            this.btn_UpdateLast.Name = "btn_UpdateLast";
+            this.btn_UpdateLast.Size = new System.Drawing.Size(57, 26);
+            this.btn_UpdateLast.TabIndex = 26;
+            this.btn_UpdateLast.Text = "Update";
+            this.btn_UpdateLast.UseVisualStyleBackColor = false;
+            this.btn_UpdateLast.Click += new System.EventHandler(this.btn_UpdateLast_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(321, 356);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 20);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "Last:";
+            // 
+            // tb_LastQueue
+            // 
+            this.tb_LastQueue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_LastQueue.Location = new System.Drawing.Point(371, 353);
+            this.tb_LastQueue.Name = "tb_LastQueue";
+            this.tb_LastQueue.Size = new System.Drawing.Size(89, 26);
+            this.tb_LastQueue.TabIndex = 24;
+            this.tb_LastQueue.TextChanged += new System.EventHandler(this.tb_LastQueue_TextChanged);
+            this.tb_LastQueue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_LastQueue_KeyPress);
             // 
             // btn_PrintQueue
             // 
@@ -452,19 +493,20 @@
             this.label15.TabIndex = 15;
             this.label15.Text = "Queue";
             // 
-            // button5
+            // btn_ResetQueue
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(37, 143);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(199, 29);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Export Data";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btn_ResetQueue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
+            this.btn_ResetQueue.FlatAppearance.BorderSize = 0;
+            this.btn_ResetQueue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_ResetQueue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_ResetQueue.ForeColor = System.Drawing.Color.White;
+            this.btn_ResetQueue.Location = new System.Drawing.Point(37, 143);
+            this.btn_ResetQueue.Name = "btn_ResetQueue";
+            this.btn_ResetQueue.Size = new System.Drawing.Size(199, 29);
+            this.btn_ResetQueue.TabIndex = 5;
+            this.btn_ResetQueue.Text = "Reset queue";
+            this.btn_ResetQueue.UseVisualStyleBackColor = false;
+            this.btn_ResetQueue.Click += new System.EventHandler(this.btn_ResetQueue_Click);
             // 
             // btn_LoadQueue
             // 
@@ -643,6 +685,57 @@
             this.tab_Settings.TabIndex = 3;
             this.tab_Settings.Text = "Settings";
             this.tab_Settings.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(6, 315);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(64, 20);
+            this.label8.TabIndex = 33;
+            this.label8.Text = "GUI url:";
+            // 
+            // tb_url
+            // 
+            this.tb_url.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_url.Location = new System.Drawing.Point(103, 312);
+            this.tb_url.Name = "tb_url";
+            this.tb_url.Size = new System.Drawing.Size(245, 26);
+            this.tb_url.TabIndex = 32;
+            // 
+            // btn_Post
+            // 
+            this.btn_Post.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
+            this.btn_Post.FlatAppearance.BorderSize = 0;
+            this.btn_Post.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Post.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btn_Post.ForeColor = System.Drawing.Color.White;
+            this.btn_Post.Location = new System.Drawing.Point(354, 279);
+            this.btn_Post.Name = "btn_Post";
+            this.btn_Post.Size = new System.Drawing.Size(105, 28);
+            this.btn_Post.TabIndex = 31;
+            this.btn_Post.Text = "Post";
+            this.btn_Post.UseVisualStyleBackColor = false;
+            this.btn_Post.Click += new System.EventHandler(this.btn_Post_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(6, 283);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(82, 20);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "Bot token:";
+            // 
+            // tb_token
+            // 
+            this.tb_token.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_token.Location = new System.Drawing.Point(103, 280);
+            this.tb_token.Name = "tb_token";
+            this.tb_token.Size = new System.Drawing.Size(245, 26);
+            this.tb_token.TabIndex = 29;
             // 
             // btn_AutosavePath
             // 
@@ -1072,57 +1165,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // tb_token
-            // 
-            this.tb_token.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tb_token.Location = new System.Drawing.Point(103, 280);
-            this.tb_token.Name = "tb_token";
-            this.tb_token.Size = new System.Drawing.Size(245, 26);
-            this.tb_token.TabIndex = 29;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(6, 283);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(82, 20);
-            this.label7.TabIndex = 30;
-            this.label7.Text = "Bot token:";
-            // 
-            // btn_Post
-            // 
-            this.btn_Post.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
-            this.btn_Post.FlatAppearance.BorderSize = 0;
-            this.btn_Post.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Post.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btn_Post.ForeColor = System.Drawing.Color.White;
-            this.btn_Post.Location = new System.Drawing.Point(354, 279);
-            this.btn_Post.Name = "btn_Post";
-            this.btn_Post.Size = new System.Drawing.Size(105, 28);
-            this.btn_Post.TabIndex = 31;
-            this.btn_Post.Text = "Post";
-            this.btn_Post.UseVisualStyleBackColor = false;
-            this.btn_Post.Click += new System.EventHandler(this.btn_Post_Click);
-            // 
-            // tb_url
-            // 
-            this.tb_url.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tb_url.Location = new System.Drawing.Point(103, 312);
-            this.tb_url.Name = "tb_url";
-            this.tb_url.Size = new System.Drawing.Size(245, 26);
-            this.tb_url.TabIndex = 32;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(6, 315);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(64, 20);
-            this.label8.TabIndex = 33;
-            this.label8.Text = "GUI url:";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1190,7 +1232,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btn_Monitor;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btn_ResetQueue;
         private System.Windows.Forms.Button btn_LoadQueue;
         private System.Windows.Forms.Button btn_SaveQueue;
         private System.Windows.Forms.Label label16;
@@ -1239,6 +1281,9 @@
         private System.Windows.Forms.TextBox tb_token;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tb_url;
+        private System.Windows.Forms.Button btn_UpdateLast;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tb_LastQueue;
     }
 }
 

@@ -53,11 +53,18 @@ namespace IASAqueue_Server
             operators = new Operator[]{ new Operator(tableLayoutPanel3,label1), new Operator(tableLayoutPanel4, label2), new Operator(tableLayoutPanel5, label3), new Operator(tableLayoutPanel6, label4), new Operator(tableLayoutPanel7, label5) };
             foreach (User u in model.users.Values)
                 u.UserOnline += Usr_UserOnline;
+            model.queue.QueueUpdated += Queue_QueueUpdated;
             Reload();           
             this.Activate();
             this.Focus();
             tmr_Media.Interval = model.settings.Media_interval*1000;
             tmr_Media.Start();
+        }
+
+        private void Queue_QueueUpdated(object sender, EventArgs e)
+        {
+            if (!IsDisposed)
+                BeginInvoke((MethodInvoker)(() => Reload()));
         }
 
         private void Usr_UserOnline(object sender, EventArgs e)
@@ -106,7 +113,7 @@ namespace IASAqueue_Server
         {
             if (model.media.Played && !model.media.isEmpty)
             {               
-                pb_Media.Image = Image.FromFile(model.media.Get());
+                pb_Media.BackgroundImage = Image.FromFile(model.media.Get());
                 model.media.Current++;
             }
         }

@@ -48,6 +48,8 @@ namespace IASAqueue_Server
             nUD_AutosaveInterval.Value = 5;
             tb_AutosavePath.Text = Environment.CurrentDirectory;
             active = btn_Dashboard;
+            tmr_Autosaver.Interval =5* 60000;
+            tmr_Autosaver.Start();        
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -169,6 +171,30 @@ namespace IASAqueue_Server
         private void tb_AddQueue_TextChanged(object sender, EventArgs e)
         {
             btn_AddQueue.Enabled = (sender as TextBox).Text.Length > 0;
+        }
+
+        private void btn_ResetQueue_Click(object sender, EventArgs e)
+        {
+            model.queue.Reset();
+        }
+
+        private void tb_LastQueue_TextChanged(object sender, EventArgs e)
+        {
+            btn_UpdateLast.Enabled = (sender as TextBox).Text.Length > 0;
+        }
+
+        private void btn_UpdateLast_Click(object sender, EventArgs e)
+        {
+            int i = 0;
+            if (int.TryParse(tb_AddQueue.Text, out i))
+            {
+                model.queue.Last = i;
+            }
+        }
+
+        private void tb_LastQueue_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
         private void lb_Queue_SelectedIndexChanged(object sender, EventArgs e)
@@ -442,7 +468,8 @@ namespace IASAqueue_Server
         {
             if (nUD_AutosaveInterval.Value > 0)
             {
-                tmr_Autosaver.Interval = (int)nUD_AutosaveInterval.Value * 60;
+                tmr_Autosaver.Stop();
+                tmr_Autosaver.Interval = (int)nUD_AutosaveInterval.Value * 60000;
                 tmr_Autosaver.Start();
             }
             else
@@ -490,5 +517,7 @@ namespace IASAqueue_Server
                 model.webgui.Post(msg);
             }
         }
+
+       
     }
 }

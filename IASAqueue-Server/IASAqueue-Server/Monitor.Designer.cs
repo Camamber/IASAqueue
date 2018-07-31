@@ -49,11 +49,12 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_title1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pb_Media = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbl_Wait = new System.Windows.Forms.Label();
             this.lbl_Next = new System.Windows.Forms.Label();
             this.tmr_Media = new System.Windows.Forms.Timer(this.components);
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pb_Media = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -62,8 +63,9 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Media)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Media)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Close
@@ -108,12 +110,13 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.pb_Media, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 45);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(743, 324);
             this.tableLayoutPanel1.TabIndex = 6;
             this.tableLayoutPanel1.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutPanel1_CellPaint);
@@ -350,18 +353,6 @@
             this.label1.Text = "label1";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // pb_Media
-            // 
-            this.pb_Media.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pb_Media.Image = global::IASAqueue_Server.Properties.Resources.photo5215656423264987270;
-            this.pb_Media.Location = new System.Drawing.Point(20, 20);
-            this.pb_Media.Margin = new System.Windows.Forms.Padding(20);
-            this.pb_Media.Name = "pb_Media";
-            this.pb_Media.Size = new System.Drawing.Size(480, 284);
-            this.pb_Media.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_Media.TabIndex = 1;
-            this.pb_Media.TabStop = false;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.lbl_Wait);
@@ -400,6 +391,26 @@
             // 
             this.tmr_Media.Tick += new System.EventHandler(this.tmr_Media_Tick);
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.pb_Media);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(514, 318);
+            this.panel3.TabIndex = 1;
+            // 
+            // pb_Media
+            // 
+            this.pb_Media.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_Media.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pb_Media.Location = new System.Drawing.Point(0, 0);
+            this.pb_Media.Margin = new System.Windows.Forms.Padding(20);
+            this.pb_Media.Name = "pb_Media";
+            this.pb_Media.Size = new System.Drawing.Size(514, 318);
+            this.pb_Media.TabIndex = 0;
+            this.pb_Media.TabStop = false;
+            // 
             // Monitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -422,9 +433,10 @@
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_Media)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_Media)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -450,10 +462,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pb_Media;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lbl_Next;
         private System.Windows.Forms.Label lbl_Wait;
         private System.Windows.Forms.Timer tmr_Media;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.PictureBox pb_Media;
     }
 }
