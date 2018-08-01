@@ -49,13 +49,8 @@
             this.btn_UpdateLast = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.tb_LastQueue = new System.Windows.Forms.TextBox();
-            this.btn_PrintQueue = new System.Windows.Forms.Button();
-            this.btn_RemoveQueue = new System.Windows.Forms.Button();
             this.lbl_AddQueue = new System.Windows.Forms.Label();
             this.tb_AddQueue = new System.Windows.Forms.TextBox();
-            this.btn_DownQueue = new System.Windows.Forms.Button();
-            this.btn_UpQueue = new System.Windows.Forms.Button();
-            this.btn_AddQueue = new System.Windows.Forms.Button();
             this.lb_Queue = new System.Windows.Forms.ListBox();
             this.label15 = new System.Windows.Forms.Label();
             this.btn_ResetQueue = new System.Windows.Forms.Button();
@@ -65,8 +60,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lbl_MediaInterval = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.btn_RemoveMedia = new System.Windows.Forms.Button();
-            this.btn_AddMedia = new System.Windows.Forms.Button();
             this.lb_Media = new System.Windows.Forms.ListBox();
             this.label16 = new System.Windows.Forms.Label();
             this.tab_Settings = new System.Windows.Forms.TabPage();
@@ -92,25 +85,39 @@
             this.lbl_Setting_Port = new System.Windows.Forms.Label();
             this.cb_COMPorts = new System.Windows.Forms.ComboBox();
             this.lbl_Settings_ButtonPorts = new System.Windows.Forms.Label();
-            this.btn_RButtonPorts = new System.Windows.Forms.Button();
-            this.btn_RDisplays = new System.Windows.Forms.Button();
-            this.btn_RPrinters = new System.Windows.Forms.Button();
             this.tab_About = new System.Windows.Forms.TabPage();
             this.label17 = new System.Windows.Forms.Label();
             this.pnl_ControlBox = new System.Windows.Forms.Panel();
             this.lbl_Title = new System.Windows.Forms.Label();
-            this.btn_Exit = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.pnl_Menu = new System.Windows.Forms.Panel();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.tmr_Autosaver = new System.Windows.Forms.Timer(this.components);
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.tb_Channel = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btn_PrintQueue = new System.Windows.Forms.Button();
+            this.btn_RemoveQueue = new System.Windows.Forms.Button();
+            this.btn_DownQueue = new System.Windows.Forms.Button();
+            this.btn_UpQueue = new System.Windows.Forms.Button();
+            this.btn_AddQueue = new System.Windows.Forms.Button();
+            this.btn_RemoveMedia = new System.Windows.Forms.Button();
+            this.btn_AddMedia = new System.Windows.Forms.Button();
+            this.btn_RButtonPorts = new System.Windows.Forms.Button();
+            this.btn_RDisplays = new System.Windows.Forms.Button();
+            this.btn_RPrinters = new System.Windows.Forms.Button();
             this.btn_About = new System.Windows.Forms.Button();
             this.btn_Settings = new System.Windows.Forms.Button();
             this.btn_Media = new System.Windows.Forms.Button();
             this.btn_Queue = new System.Windows.Forms.Button();
             this.btn_Dashboard = new System.Windows.Forms.Button();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.tmr_Autosaver = new System.Windows.Forms.Timer(this.components);
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btn_Exit = new System.Windows.Forms.Button();
+            this.lbl_op1 = new System.Windows.Forms.Label();
+            this.lbl_op2 = new System.Windows.Forms.Label();
+            this.lbl_op3 = new System.Windows.Forms.Label();
+            this.lbl_op4 = new System.Windows.Forms.Label();
+            this.lbl_op5 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.pnl_Dashboard.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -319,13 +326,18 @@
             // 
             // tab_Queue
             // 
+            this.tab_Queue.Controls.Add(this.lbl_op5);
+            this.tab_Queue.Controls.Add(this.lbl_op4);
+            this.tab_Queue.Controls.Add(this.lbl_op3);
+            this.tab_Queue.Controls.Add(this.lbl_op2);
+            this.tab_Queue.Controls.Add(this.lbl_op1);
             this.tab_Queue.Controls.Add(this.btn_UpdateLast);
             this.tab_Queue.Controls.Add(this.label9);
             this.tab_Queue.Controls.Add(this.tb_LastQueue);
-            this.tab_Queue.Controls.Add(this.btn_PrintQueue);
-            this.tab_Queue.Controls.Add(this.btn_RemoveQueue);
             this.tab_Queue.Controls.Add(this.lbl_AddQueue);
             this.tab_Queue.Controls.Add(this.tb_AddQueue);
+            this.tab_Queue.Controls.Add(this.btn_PrintQueue);
+            this.tab_Queue.Controls.Add(this.btn_RemoveQueue);
             this.tab_Queue.Controls.Add(this.btn_DownQueue);
             this.tab_Queue.Controls.Add(this.btn_UpQueue);
             this.tab_Queue.Controls.Add(this.btn_AddQueue);
@@ -377,36 +389,6 @@
             this.tb_LastQueue.TextChanged += new System.EventHandler(this.tb_LastQueue_TextChanged);
             this.tb_LastQueue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_LastQueue_KeyPress);
             // 
-            // btn_PrintQueue
-            // 
-            this.btn_PrintQueue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
-            this.btn_PrintQueue.BackgroundImage = global::IASAqueue_Server.Properties.Resources.ic_print;
-            this.btn_PrintQueue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_PrintQueue.Enabled = false;
-            this.btn_PrintQueue.FlatAppearance.BorderSize = 0;
-            this.btn_PrintQueue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_PrintQueue.Location = new System.Drawing.Point(529, 217);
-            this.btn_PrintQueue.Name = "btn_PrintQueue";
-            this.btn_PrintQueue.Size = new System.Drawing.Size(32, 32);
-            this.btn_PrintQueue.TabIndex = 23;
-            this.btn_PrintQueue.UseVisualStyleBackColor = false;
-            this.btn_PrintQueue.Click += new System.EventHandler(this.btn_PrintQueue_Click);
-            // 
-            // btn_RemoveQueue
-            // 
-            this.btn_RemoveQueue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
-            this.btn_RemoveQueue.BackgroundImage = global::IASAqueue_Server.Properties.Resources.ic_remove_circle;
-            this.btn_RemoveQueue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_RemoveQueue.Enabled = false;
-            this.btn_RemoveQueue.FlatAppearance.BorderSize = 0;
-            this.btn_RemoveQueue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_RemoveQueue.Location = new System.Drawing.Point(529, 179);
-            this.btn_RemoveQueue.Name = "btn_RemoveQueue";
-            this.btn_RemoveQueue.Size = new System.Drawing.Size(32, 32);
-            this.btn_RemoveQueue.TabIndex = 22;
-            this.btn_RemoveQueue.UseVisualStyleBackColor = false;
-            this.btn_RemoveQueue.Click += new System.EventHandler(this.btn_RemoveQueue_Click);
-            // 
             // lbl_AddQueue
             // 
             this.lbl_AddQueue.AutoSize = true;
@@ -426,51 +408,6 @@
             this.tb_AddQueue.TabIndex = 20;
             this.tb_AddQueue.TextChanged += new System.EventHandler(this.tb_AddQueue_TextChanged);
             this.tb_AddQueue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_AddQueue_KeyPress);
-            // 
-            // btn_DownQueue
-            // 
-            this.btn_DownQueue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
-            this.btn_DownQueue.BackgroundImage = global::IASAqueue_Server.Properties.Resources.ic_arrow_drop_down_circle;
-            this.btn_DownQueue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_DownQueue.Enabled = false;
-            this.btn_DownQueue.FlatAppearance.BorderSize = 0;
-            this.btn_DownQueue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_DownQueue.Location = new System.Drawing.Point(529, 141);
-            this.btn_DownQueue.Name = "btn_DownQueue";
-            this.btn_DownQueue.Size = new System.Drawing.Size(32, 32);
-            this.btn_DownQueue.TabIndex = 19;
-            this.btn_DownQueue.UseVisualStyleBackColor = false;
-            this.btn_DownQueue.Click += new System.EventHandler(this.btn_DownQueue_Click);
-            // 
-            // btn_UpQueue
-            // 
-            this.btn_UpQueue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
-            this.btn_UpQueue.BackgroundImage = global::IASAqueue_Server.Properties.Resources.ic_arrow_drop_up_circle;
-            this.btn_UpQueue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_UpQueue.Enabled = false;
-            this.btn_UpQueue.FlatAppearance.BorderSize = 0;
-            this.btn_UpQueue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_UpQueue.Location = new System.Drawing.Point(529, 103);
-            this.btn_UpQueue.Name = "btn_UpQueue";
-            this.btn_UpQueue.Size = new System.Drawing.Size(32, 32);
-            this.btn_UpQueue.TabIndex = 18;
-            this.btn_UpQueue.UseVisualStyleBackColor = false;
-            this.btn_UpQueue.Click += new System.EventHandler(this.btn_UpQueue_Click);
-            // 
-            // btn_AddQueue
-            // 
-            this.btn_AddQueue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
-            this.btn_AddQueue.BackgroundImage = global::IASAqueue_Server.Properties.Resources.ic_add_circle;
-            this.btn_AddQueue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_AddQueue.Enabled = false;
-            this.btn_AddQueue.FlatAppearance.BorderSize = 0;
-            this.btn_AddQueue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_AddQueue.Location = new System.Drawing.Point(529, 65);
-            this.btn_AddQueue.Name = "btn_AddQueue";
-            this.btn_AddQueue.Size = new System.Drawing.Size(32, 32);
-            this.btn_AddQueue.TabIndex = 17;
-            this.btn_AddQueue.UseVisualStyleBackColor = false;
-            this.btn_AddQueue.Click += new System.EventHandler(this.btn_AddQueue_Click);
             // 
             // lb_Queue
             // 
@@ -599,35 +536,6 @@
             0});
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
-            // btn_RemoveMedia
-            // 
-            this.btn_RemoveMedia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
-            this.btn_RemoveMedia.BackgroundImage = global::IASAqueue_Server.Properties.Resources.ic_remove_circle;
-            this.btn_RemoveMedia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_RemoveMedia.Enabled = false;
-            this.btn_RemoveMedia.FlatAppearance.BorderSize = 0;
-            this.btn_RemoveMedia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_RemoveMedia.Location = new System.Drawing.Point(324, 108);
-            this.btn_RemoveMedia.Name = "btn_RemoveMedia";
-            this.btn_RemoveMedia.Size = new System.Drawing.Size(32, 32);
-            this.btn_RemoveMedia.TabIndex = 30;
-            this.btn_RemoveMedia.UseVisualStyleBackColor = false;
-            this.btn_RemoveMedia.Click += new System.EventHandler(this.btn_RemoveMedia_Click);
-            // 
-            // btn_AddMedia
-            // 
-            this.btn_AddMedia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
-            this.btn_AddMedia.BackgroundImage = global::IASAqueue_Server.Properties.Resources.ic_add_circle;
-            this.btn_AddMedia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_AddMedia.FlatAppearance.BorderSize = 0;
-            this.btn_AddMedia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_AddMedia.Location = new System.Drawing.Point(324, 70);
-            this.btn_AddMedia.Name = "btn_AddMedia";
-            this.btn_AddMedia.Size = new System.Drawing.Size(32, 32);
-            this.btn_AddMedia.TabIndex = 25;
-            this.btn_AddMedia.UseVisualStyleBackColor = false;
-            this.btn_AddMedia.Click += new System.EventHandler(this.btn_AddMedia_Click);
-            // 
             // lb_Media
             // 
             this.lb_Media.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -652,6 +560,8 @@
             // 
             // tab_Settings
             // 
+            this.tab_Settings.Controls.Add(this.label10);
+            this.tab_Settings.Controls.Add(this.tb_Channel);
             this.tab_Settings.Controls.Add(this.label8);
             this.tab_Settings.Controls.Add(this.tb_url);
             this.tab_Settings.Controls.Add(this.btn_Post);
@@ -701,7 +611,7 @@
             this.tb_url.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tb_url.Location = new System.Drawing.Point(103, 312);
             this.tb_url.Name = "tb_url";
-            this.tb_url.Size = new System.Drawing.Size(245, 26);
+            this.tb_url.Size = new System.Drawing.Size(333, 26);
             this.tb_url.TabIndex = 32;
             // 
             // btn_Post
@@ -711,7 +621,7 @@
             this.btn_Post.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Post.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btn_Post.ForeColor = System.Drawing.Color.White;
-            this.btn_Post.Location = new System.Drawing.Point(354, 279);
+            this.btn_Post.Location = new System.Drawing.Point(442, 280);
             this.btn_Post.Name = "btn_Post";
             this.btn_Post.Size = new System.Drawing.Size(105, 28);
             this.btn_Post.TabIndex = 31;
@@ -734,7 +644,7 @@
             this.tb_token.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tb_token.Location = new System.Drawing.Point(103, 280);
             this.tb_token.Name = "tb_token";
-            this.tb_token.Size = new System.Drawing.Size(245, 26);
+            this.tb_token.Size = new System.Drawing.Size(158, 26);
             this.tb_token.TabIndex = 29;
             // 
             // btn_AutosavePath
@@ -933,51 +843,6 @@
             this.lbl_Settings_ButtonPorts.TabIndex = 11;
             this.lbl_Settings_ButtonPorts.Text = "Button port:";
             // 
-            // btn_RButtonPorts
-            // 
-            this.btn_RButtonPorts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
-            this.btn_RButtonPorts.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_RButtonPorts.BackgroundImage")));
-            this.btn_RButtonPorts.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_RButtonPorts.FlatAppearance.BorderSize = 0;
-            this.btn_RButtonPorts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_RButtonPorts.ForeColor = System.Drawing.Color.White;
-            this.btn_RButtonPorts.Location = new System.Drawing.Point(200, 92);
-            this.btn_RButtonPorts.Name = "btn_RButtonPorts";
-            this.btn_RButtonPorts.Size = new System.Drawing.Size(28, 28);
-            this.btn_RButtonPorts.TabIndex = 22;
-            this.btn_RButtonPorts.UseVisualStyleBackColor = false;
-            this.btn_RButtonPorts.Click += new System.EventHandler(this.btn_RButtonPorts_Click);
-            // 
-            // btn_RDisplays
-            // 
-            this.btn_RDisplays.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
-            this.btn_RDisplays.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_RDisplays.BackgroundImage")));
-            this.btn_RDisplays.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_RDisplays.FlatAppearance.BorderSize = 0;
-            this.btn_RDisplays.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_RDisplays.ForeColor = System.Drawing.Color.White;
-            this.btn_RDisplays.Location = new System.Drawing.Point(200, 139);
-            this.btn_RDisplays.Name = "btn_RDisplays";
-            this.btn_RDisplays.Size = new System.Drawing.Size(28, 28);
-            this.btn_RDisplays.TabIndex = 21;
-            this.btn_RDisplays.UseVisualStyleBackColor = false;
-            this.btn_RDisplays.Click += new System.EventHandler(this.btn_RDisplays_Click);
-            // 
-            // btn_RPrinters
-            // 
-            this.btn_RPrinters.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
-            this.btn_RPrinters.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_RPrinters.BackgroundImage")));
-            this.btn_RPrinters.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_RPrinters.FlatAppearance.BorderSize = 0;
-            this.btn_RPrinters.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_RPrinters.ForeColor = System.Drawing.Color.White;
-            this.btn_RPrinters.Location = new System.Drawing.Point(200, 186);
-            this.btn_RPrinters.Name = "btn_RPrinters";
-            this.btn_RPrinters.Size = new System.Drawing.Size(28, 28);
-            this.btn_RPrinters.TabIndex = 20;
-            this.btn_RPrinters.UseVisualStyleBackColor = false;
-            this.btn_RPrinters.Click += new System.EventHandler(this.btn_RPrinters_Click);
-            // 
             // tab_About
             // 
             this.tab_About.Controls.Add(this.label17);
@@ -1022,20 +887,6 @@
             this.lbl_Title.TabIndex = 1;
             this.lbl_Title.Text = "IASA Queue";
             // 
-            // btn_Exit
-            // 
-            this.btn_Exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.btn_Exit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Exit.BackgroundImage")));
-            this.btn_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_Exit.FlatAppearance.BorderSize = 0;
-            this.btn_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Exit.Location = new System.Drawing.Point(808, 2);
-            this.btn_Exit.Name = "btn_Exit";
-            this.btn_Exit.Size = new System.Drawing.Size(25, 25);
-            this.btn_Exit.TabIndex = 0;
-            this.btn_Exit.UseVisualStyleBackColor = false;
-            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
-            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
@@ -1065,6 +916,181 @@
             this.pnl_Menu.Name = "pnl_Menu";
             this.pnl_Menu.Size = new System.Drawing.Size(250, 402);
             this.pnl_Menu.TabIndex = 6;
+            // 
+            // tmr_Autosaver
+            // 
+            this.tmr_Autosaver.Tick += new System.EventHandler(this.tmr_Autosaver_Tick);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // tb_Channel
+            // 
+            this.tb_Channel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tb_Channel.Location = new System.Drawing.Point(345, 281);
+            this.tb_Channel.Name = "tb_Channel";
+            this.tb_Channel.Size = new System.Drawing.Size(91, 26);
+            this.tb_Channel.TabIndex = 34;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(267, 284);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(72, 20);
+            this.label10.TabIndex = 35;
+            this.label10.Text = "Channel:";
+            // 
+            // btn_PrintQueue
+            // 
+            this.btn_PrintQueue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
+            this.btn_PrintQueue.BackgroundImage = global::IASAqueue_Server.Properties.Resources.ic_print;
+            this.btn_PrintQueue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_PrintQueue.Enabled = false;
+            this.btn_PrintQueue.FlatAppearance.BorderSize = 0;
+            this.btn_PrintQueue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_PrintQueue.Location = new System.Drawing.Point(529, 217);
+            this.btn_PrintQueue.Name = "btn_PrintQueue";
+            this.btn_PrintQueue.Size = new System.Drawing.Size(32, 32);
+            this.btn_PrintQueue.TabIndex = 23;
+            this.btn_PrintQueue.UseVisualStyleBackColor = false;
+            this.btn_PrintQueue.Click += new System.EventHandler(this.btn_PrintQueue_Click);
+            // 
+            // btn_RemoveQueue
+            // 
+            this.btn_RemoveQueue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
+            this.btn_RemoveQueue.BackgroundImage = global::IASAqueue_Server.Properties.Resources.ic_remove_circle;
+            this.btn_RemoveQueue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_RemoveQueue.Enabled = false;
+            this.btn_RemoveQueue.FlatAppearance.BorderSize = 0;
+            this.btn_RemoveQueue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_RemoveQueue.Location = new System.Drawing.Point(529, 179);
+            this.btn_RemoveQueue.Name = "btn_RemoveQueue";
+            this.btn_RemoveQueue.Size = new System.Drawing.Size(32, 32);
+            this.btn_RemoveQueue.TabIndex = 22;
+            this.btn_RemoveQueue.UseVisualStyleBackColor = false;
+            this.btn_RemoveQueue.Click += new System.EventHandler(this.btn_RemoveQueue_Click);
+            // 
+            // btn_DownQueue
+            // 
+            this.btn_DownQueue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
+            this.btn_DownQueue.BackgroundImage = global::IASAqueue_Server.Properties.Resources.ic_arrow_drop_down_circle;
+            this.btn_DownQueue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_DownQueue.Enabled = false;
+            this.btn_DownQueue.FlatAppearance.BorderSize = 0;
+            this.btn_DownQueue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_DownQueue.Location = new System.Drawing.Point(529, 141);
+            this.btn_DownQueue.Name = "btn_DownQueue";
+            this.btn_DownQueue.Size = new System.Drawing.Size(32, 32);
+            this.btn_DownQueue.TabIndex = 19;
+            this.btn_DownQueue.UseVisualStyleBackColor = false;
+            this.btn_DownQueue.Click += new System.EventHandler(this.btn_DownQueue_Click);
+            // 
+            // btn_UpQueue
+            // 
+            this.btn_UpQueue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
+            this.btn_UpQueue.BackgroundImage = global::IASAqueue_Server.Properties.Resources.ic_arrow_drop_up_circle;
+            this.btn_UpQueue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_UpQueue.Enabled = false;
+            this.btn_UpQueue.FlatAppearance.BorderSize = 0;
+            this.btn_UpQueue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_UpQueue.Location = new System.Drawing.Point(529, 103);
+            this.btn_UpQueue.Name = "btn_UpQueue";
+            this.btn_UpQueue.Size = new System.Drawing.Size(32, 32);
+            this.btn_UpQueue.TabIndex = 18;
+            this.btn_UpQueue.UseVisualStyleBackColor = false;
+            this.btn_UpQueue.Click += new System.EventHandler(this.btn_UpQueue_Click);
+            // 
+            // btn_AddQueue
+            // 
+            this.btn_AddQueue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
+            this.btn_AddQueue.BackgroundImage = global::IASAqueue_Server.Properties.Resources.ic_add_circle;
+            this.btn_AddQueue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_AddQueue.Enabled = false;
+            this.btn_AddQueue.FlatAppearance.BorderSize = 0;
+            this.btn_AddQueue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_AddQueue.Location = new System.Drawing.Point(529, 65);
+            this.btn_AddQueue.Name = "btn_AddQueue";
+            this.btn_AddQueue.Size = new System.Drawing.Size(32, 32);
+            this.btn_AddQueue.TabIndex = 17;
+            this.btn_AddQueue.UseVisualStyleBackColor = false;
+            this.btn_AddQueue.Click += new System.EventHandler(this.btn_AddQueue_Click);
+            // 
+            // btn_RemoveMedia
+            // 
+            this.btn_RemoveMedia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
+            this.btn_RemoveMedia.BackgroundImage = global::IASAqueue_Server.Properties.Resources.ic_remove_circle;
+            this.btn_RemoveMedia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_RemoveMedia.Enabled = false;
+            this.btn_RemoveMedia.FlatAppearance.BorderSize = 0;
+            this.btn_RemoveMedia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_RemoveMedia.Location = new System.Drawing.Point(324, 108);
+            this.btn_RemoveMedia.Name = "btn_RemoveMedia";
+            this.btn_RemoveMedia.Size = new System.Drawing.Size(32, 32);
+            this.btn_RemoveMedia.TabIndex = 30;
+            this.btn_RemoveMedia.UseVisualStyleBackColor = false;
+            this.btn_RemoveMedia.Click += new System.EventHandler(this.btn_RemoveMedia_Click);
+            // 
+            // btn_AddMedia
+            // 
+            this.btn_AddMedia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
+            this.btn_AddMedia.BackgroundImage = global::IASAqueue_Server.Properties.Resources.ic_add_circle;
+            this.btn_AddMedia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_AddMedia.FlatAppearance.BorderSize = 0;
+            this.btn_AddMedia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_AddMedia.Location = new System.Drawing.Point(324, 70);
+            this.btn_AddMedia.Name = "btn_AddMedia";
+            this.btn_AddMedia.Size = new System.Drawing.Size(32, 32);
+            this.btn_AddMedia.TabIndex = 25;
+            this.btn_AddMedia.UseVisualStyleBackColor = false;
+            this.btn_AddMedia.Click += new System.EventHandler(this.btn_AddMedia_Click);
+            // 
+            // btn_RButtonPorts
+            // 
+            this.btn_RButtonPorts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
+            this.btn_RButtonPorts.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_RButtonPorts.BackgroundImage")));
+            this.btn_RButtonPorts.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_RButtonPorts.FlatAppearance.BorderSize = 0;
+            this.btn_RButtonPorts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_RButtonPorts.ForeColor = System.Drawing.Color.White;
+            this.btn_RButtonPorts.Location = new System.Drawing.Point(200, 92);
+            this.btn_RButtonPorts.Name = "btn_RButtonPorts";
+            this.btn_RButtonPorts.Size = new System.Drawing.Size(28, 28);
+            this.btn_RButtonPorts.TabIndex = 22;
+            this.btn_RButtonPorts.UseVisualStyleBackColor = false;
+            this.btn_RButtonPorts.Click += new System.EventHandler(this.btn_RButtonPorts_Click);
+            // 
+            // btn_RDisplays
+            // 
+            this.btn_RDisplays.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
+            this.btn_RDisplays.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_RDisplays.BackgroundImage")));
+            this.btn_RDisplays.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_RDisplays.FlatAppearance.BorderSize = 0;
+            this.btn_RDisplays.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_RDisplays.ForeColor = System.Drawing.Color.White;
+            this.btn_RDisplays.Location = new System.Drawing.Point(200, 139);
+            this.btn_RDisplays.Name = "btn_RDisplays";
+            this.btn_RDisplays.Size = new System.Drawing.Size(28, 28);
+            this.btn_RDisplays.TabIndex = 21;
+            this.btn_RDisplays.UseVisualStyleBackColor = false;
+            this.btn_RDisplays.Click += new System.EventHandler(this.btn_RDisplays_Click);
+            // 
+            // btn_RPrinters
+            // 
+            this.btn_RPrinters.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(90)))), ((int)(((byte)(161)))));
+            this.btn_RPrinters.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_RPrinters.BackgroundImage")));
+            this.btn_RPrinters.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_RPrinters.FlatAppearance.BorderSize = 0;
+            this.btn_RPrinters.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_RPrinters.ForeColor = System.Drawing.Color.White;
+            this.btn_RPrinters.Location = new System.Drawing.Point(200, 186);
+            this.btn_RPrinters.Name = "btn_RPrinters";
+            this.btn_RPrinters.Size = new System.Drawing.Size(28, 28);
+            this.btn_RPrinters.TabIndex = 20;
+            this.btn_RPrinters.UseVisualStyleBackColor = false;
+            this.btn_RPrinters.Click += new System.EventHandler(this.btn_RPrinters_Click);
             // 
             // btn_About
             // 
@@ -1157,13 +1183,69 @@
             this.btn_Dashboard.UseVisualStyleBackColor = false;
             this.btn_Dashboard.Click += new System.EventHandler(this.btn_Dashboard_Click);
             // 
-            // tmr_Autosaver
+            // btn_Exit
             // 
-            this.tmr_Autosaver.Tick += new System.EventHandler(this.tmr_Autosaver_Tick);
+            this.btn_Exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.btn_Exit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_Exit.BackgroundImage")));
+            this.btn_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_Exit.FlatAppearance.BorderSize = 0;
+            this.btn_Exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Exit.Location = new System.Drawing.Point(808, 2);
+            this.btn_Exit.Name = "btn_Exit";
+            this.btn_Exit.Size = new System.Drawing.Size(25, 25);
+            this.btn_Exit.TabIndex = 0;
+            this.btn_Exit.UseVisualStyleBackColor = false;
+            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
-            // openFileDialog1
+            // lbl_op1
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.lbl_op1.AutoSize = true;
+            this.lbl_op1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_op1.Location = new System.Drawing.Point(39, 192);
+            this.lbl_op1.Name = "lbl_op1";
+            this.lbl_op1.Size = new System.Drawing.Size(60, 20);
+            this.lbl_op1.TabIndex = 27;
+            this.lbl_op1.Text = "label11";
+            // 
+            // lbl_op2
+            // 
+            this.lbl_op2.AutoSize = true;
+            this.lbl_op2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_op2.Location = new System.Drawing.Point(39, 212);
+            this.lbl_op2.Name = "lbl_op2";
+            this.lbl_op2.Size = new System.Drawing.Size(60, 20);
+            this.lbl_op2.TabIndex = 28;
+            this.lbl_op2.Text = "label12";
+            // 
+            // lbl_op3
+            // 
+            this.lbl_op3.AutoSize = true;
+            this.lbl_op3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_op3.Location = new System.Drawing.Point(39, 232);
+            this.lbl_op3.Name = "lbl_op3";
+            this.lbl_op3.Size = new System.Drawing.Size(60, 20);
+            this.lbl_op3.TabIndex = 29;
+            this.lbl_op3.Text = "label13";
+            // 
+            // lbl_op4
+            // 
+            this.lbl_op4.AutoSize = true;
+            this.lbl_op4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_op4.Location = new System.Drawing.Point(39, 252);
+            this.lbl_op4.Name = "lbl_op4";
+            this.lbl_op4.Size = new System.Drawing.Size(60, 20);
+            this.lbl_op4.TabIndex = 30;
+            this.lbl_op4.Text = "label18";
+            // 
+            // lbl_op5
+            // 
+            this.lbl_op5.AutoSize = true;
+            this.lbl_op5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_op5.Location = new System.Drawing.Point(39, 272);
+            this.lbl_op5.Name = "lbl_op5";
+            this.lbl_op5.Size = new System.Drawing.Size(60, 20);
+            this.lbl_op5.TabIndex = 31;
+            this.lbl_op5.Text = "label19";
             // 
             // MainForm
             // 
@@ -1284,6 +1366,13 @@
         private System.Windows.Forms.Button btn_UpdateLast;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tb_LastQueue;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox tb_Channel;
+        private System.Windows.Forms.Label lbl_op5;
+        private System.Windows.Forms.Label lbl_op4;
+        private System.Windows.Forms.Label lbl_op3;
+        private System.Windows.Forms.Label lbl_op2;
+        private System.Windows.Forms.Label lbl_op1;
     }
 }
 

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,6 +30,7 @@ namespace IASAqueue_Server
 
         Model model;
         Operator[] operators;
+        SoundPlayer notification;
         public Monitor(Model model)
         {
             InitializeComponent();
@@ -50,6 +52,8 @@ namespace IASAqueue_Server
 
         private void Monitor_Load(object sender, EventArgs e)
         {
+            timer.Start();
+            notification = new SoundPlayer(Properties.Resources.not2);
             operators = new Operator[]{ new Operator(tableLayoutPanel3,label1), new Operator(tableLayoutPanel4, label2), new Operator(tableLayoutPanel5, label3), new Operator(tableLayoutPanel6, label4), new Operator(tableLayoutPanel7, label5) };
             foreach (User u in model.users.Values)
                 u.UserOnline += Usr_UserOnline;
@@ -59,10 +63,13 @@ namespace IASAqueue_Server
             this.Focus();
             tmr_Media.Interval = model.settings.Media_interval*1000;
             tmr_Media.Start();
+
         }
 
         private void Queue_QueueUpdated(object sender, EventArgs e)
         {
+
+            notification.Play();
             if (!IsDisposed)
                 BeginInvoke((MethodInvoker)(() => Reload()));
         }
@@ -84,6 +91,8 @@ namespace IASAqueue_Server
                 operators[u.Order - 1].number.Text = u.Student > 0 ? u.Student.ToString() : "-";
             }
         }
+
+        
 
         private void tableLayoutPanel1_CellPaint(object sender, TableLayoutCellPaintEventArgs e)
         {
@@ -116,6 +125,24 @@ namespace IASAqueue_Server
                 pb_Media.BackgroundImage = Image.FromFile(model.media.Get());
                 model.media.Current++;
             }
+        }
+
+        private void Monitor_ResizeBegin(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void Monitor_Resize(object sender, EventArgs e)
+        {
+            lbl_Title.Font = new Font(FontFamily.GenericSansSerif, (float)(0.7 * lbl_Title.Height), GraphicsUnit.Pixel);
+            lbl_Time.Font = lbl_Next.Font = lbl_Wait.Font = new Font(FontFamily.GenericSansSerif, (float)(0.57 * panel2.Height), GraphicsUnit.Pixel);
+            lbl_title1.Font = lbl_title2.Font = lbl_title3.Font = lbl_title4.Font = lbl_title5.Font = new Font(FontFamily.GenericSansSerif, (float)(0.7 * lbl_title1.Height), GraphicsUnit.Pixel);
+            label1.Font = label2.Font = label3.Font = label4.Font = label5.Font = new Font(FontFamily.GenericSansSerif, (float)(0.9 * label1.Height), GraphicsUnit.Pixel);
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            lbl_Time.Text = DateTime.Now.ToString("dd MMMM, HH:mm");
         }
     }
 }

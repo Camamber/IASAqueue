@@ -49,12 +49,14 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.lbl_title1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lbl_Wait = new System.Windows.Forms.Label();
-            this.lbl_Next = new System.Windows.Forms.Label();
-            this.tmr_Media = new System.Windows.Forms.Timer(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
             this.pb_Media = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lbl_Time = new System.Windows.Forms.Label();
+            this.lbl_Next = new System.Windows.Forms.Label();
+            this.lbl_Wait = new System.Windows.Forms.Label();
+            this.tmr_Media = new System.Windows.Forms.Timer(this.components);
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -63,9 +65,9 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Media)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_Close
@@ -95,7 +97,7 @@
             // lbl_Title
             // 
             this.lbl_Title.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
             this.lbl_Title.ForeColor = System.Drawing.Color.Yellow;
             this.lbl_Title.Location = new System.Drawing.Point(0, 0);
             this.lbl_Title.Name = "lbl_Title";
@@ -116,7 +118,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 324F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(743, 324);
             this.tableLayoutPanel1.TabIndex = 6;
             this.tableLayoutPanel1.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutPanel1_CellPaint);
@@ -330,7 +332,7 @@
             // lbl_title1
             // 
             this.lbl_title1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbl_title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
             this.lbl_title1.ForeColor = System.Drawing.Color.Yellow;
             this.lbl_title1.Location = new System.Drawing.Point(0, 0);
             this.lbl_title1.Margin = new System.Windows.Forms.Padding(0);
@@ -343,7 +345,7 @@
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.Yellow;
             this.label1.Location = new System.Drawing.Point(0, 24);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
@@ -352,44 +354,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.lbl_Wait);
-            this.panel2.Controls.Add(this.lbl_Next);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 369);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(743, 35);
-            this.panel2.TabIndex = 7;
-            // 
-            // lbl_Wait
-            // 
-            this.lbl_Wait.AutoSize = true;
-            this.lbl_Wait.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_Wait.ForeColor = System.Drawing.Color.Yellow;
-            this.lbl_Wait.Location = new System.Drawing.Point(510, 3);
-            this.lbl_Wait.Name = "lbl_Wait";
-            this.lbl_Wait.Size = new System.Drawing.Size(229, 26);
-            this.lbl_Wait.TabIndex = 4;
-            this.lbl_Wait.Text = "Waiting time: 00:00:00";
-            this.lbl_Wait.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbl_Next
-            // 
-            this.lbl_Next.AutoSize = true;
-            this.lbl_Next.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_Next.ForeColor = System.Drawing.Color.Yellow;
-            this.lbl_Next.Location = new System.Drawing.Point(3, 3);
-            this.lbl_Next.Name = "lbl_Next";
-            this.lbl_Next.Size = new System.Drawing.Size(148, 26);
-            this.lbl_Next.TabIndex = 3;
-            this.lbl_Next.Text = "You are next: ";
-            this.lbl_Next.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tmr_Media
-            // 
-            this.tmr_Media.Tick += new System.EventHandler(this.tmr_Media_Tick);
             // 
             // panel3
             // 
@@ -411,6 +375,62 @@
             this.pb_Media.TabIndex = 0;
             this.pb_Media.TabStop = false;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lbl_Time);
+            this.panel2.Controls.Add(this.lbl_Next);
+            this.panel2.Controls.Add(this.lbl_Wait);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 369);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(743, 35);
+            this.panel2.TabIndex = 7;
+            // 
+            // lbl_Time
+            // 
+            this.lbl_Time.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_Time.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(204)));
+            this.lbl_Time.ForeColor = System.Drawing.Color.Yellow;
+            this.lbl_Time.Location = new System.Drawing.Point(507, 4);
+            this.lbl_Time.Name = "lbl_Time";
+            this.lbl_Time.Size = new System.Drawing.Size(233, 25);
+            this.lbl_Time.TabIndex = 5;
+            this.lbl_Time.Text = "00:00:00";
+            this.lbl_Time.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl_Next
+            // 
+            this.lbl_Next.AutoSize = true;
+            this.lbl_Next.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_Next.ForeColor = System.Drawing.Color.Yellow;
+            this.lbl_Next.Location = new System.Drawing.Point(3, 3);
+            this.lbl_Next.Name = "lbl_Next";
+            this.lbl_Next.Size = new System.Drawing.Size(148, 26);
+            this.lbl_Next.TabIndex = 3;
+            this.lbl_Next.Text = "You are next: ";
+            this.lbl_Next.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl_Wait
+            // 
+            this.lbl_Wait.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbl_Wait.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_Wait.ForeColor = System.Drawing.Color.Yellow;
+            this.lbl_Wait.Location = new System.Drawing.Point(0, 0);
+            this.lbl_Wait.Name = "lbl_Wait";
+            this.lbl_Wait.Size = new System.Drawing.Size(743, 35);
+            this.lbl_Wait.TabIndex = 4;
+            this.lbl_Wait.Text = "Waiting time: 00:00:00";
+            this.lbl_Wait.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tmr_Media
+            // 
+            this.tmr_Media.Tick += new System.EventHandler(this.tmr_Media_Tick);
+            // 
+            // timer
+            // 
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // Monitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -424,7 +444,9 @@
             this.Name = "Monitor";
             this.Text = "Monitor";
             this.Load += new System.EventHandler(this.Monitor_Load);
+            this.ResizeBegin += new System.EventHandler(this.Monitor_ResizeBegin);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Monitor_KeyPress);
+            this.Resize += new System.EventHandler(this.Monitor_Resize);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -433,10 +455,10 @@
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb_Media)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -468,5 +490,7 @@
         private System.Windows.Forms.Timer tmr_Media;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pb_Media;
+        private System.Windows.Forms.Label lbl_Time;
+        private System.Windows.Forms.Timer timer;
     }
 }

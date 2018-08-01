@@ -116,7 +116,6 @@ namespace IASAqueue_Server
             }
             else if (server.GetSetStatus == Status.Online)
             {
-
                 lbl_Status.ForeColor = Color.Green;
                 lbl_Status.Text = "Online";
                 btn_Stop.Visible = true;
@@ -274,6 +273,12 @@ namespace IASAqueue_Server
         {
             lb_Queue.Items.Clear();
             lb_Queue.Items.AddRange(model.queue.QueueArr.Cast<object>().ToArray());
+            lbl_op1.Text = "Operator1: "+ model.users["user1"].Student.ToString();
+            lbl_op2.Text = "Operator2: " + model.users["user2"].Student.ToString();
+            lbl_op3.Text = "Operator3: " + model.users["user3"].Student.ToString();
+            lbl_op4.Text = "Operator4: " + model.users["user4"].Student.ToString();
+            lbl_op5.Text = "Operator5: " + model.users["user5"].Student.ToString();
+
             string msg = "";
 
             for (int i = 0; i < model.users.Count; i++)
@@ -481,6 +486,24 @@ namespace IASAqueue_Server
             model.settings.IP = tb_IP.Text;
         }
 
+        //Telegram
+
+        private void btn_Post_Click(object sender, EventArgs e)
+        {
+            if (tb_token.Text != "" && tb_Channel.Text != "")
+            {
+                model.webgui = new WebGUI(tb_token.Text, tb_url.Text, tb_Channel.Text);
+                string msg = "";
+
+                for (int i = 0; i < model.users.Count; i++)
+                {
+                    msg += String.Format("{0}. - {1}\n", (i + 1).ToString(), model.users.Values.ElementAt(i).Student.ToString());
+                }
+                msg += "Приготовиться: " + model.queue.Predict(3);
+                model.webgui.Post(msg);
+            }
+        }
+
 
 
         //Drag form
@@ -500,24 +523,6 @@ namespace IASAqueue_Server
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
-        }
-
-        private void btn_Post_Click(object sender, EventArgs e)
-        {
-            if (tb_token.Text != "")
-            {
-                model.webgui = new WebGUI(tb_token.Text, tb_url.Text, "@lupapupa");
-                string msg = "";
-
-                for(int i =0;i < model.users.Count; i++)
-                {
-                    msg += String.Format("{0}. - {1}\n", (i+1).ToString(), model.users.Values.ElementAt(i).Student.ToString());
-                }
-                msg += "Приготовиться: " + model.queue.Predict(3);
-                model.webgui.Post(msg);
-            }
-        }
-
-       
+        }       
     }
 }

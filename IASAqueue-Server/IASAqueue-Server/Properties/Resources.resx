@@ -157,4 +157,10 @@
   <data name="ic_print" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_print.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="not" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\not.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="not2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\not2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
