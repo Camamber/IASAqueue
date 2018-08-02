@@ -49,6 +49,7 @@
             this.tb_Username.Name = "tb_Username";
             this.tb_Username.Size = new System.Drawing.Size(204, 26);
             this.tb_Username.TabIndex = 0;
+            this.tb_Username.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_Username_KeyPress);
             // 
             // lbl_user
             // 
@@ -176,6 +177,7 @@
             this.MaximizeBox = false;
             this.Name = "LogIn";
             this.Text = "LogIn";
+            this.Load += new System.EventHandler(this.LogIn_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

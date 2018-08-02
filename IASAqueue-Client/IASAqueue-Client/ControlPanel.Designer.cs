@@ -41,10 +41,10 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer_Update = new System.Windows.Forms.Timer(this.components);
             this.pnl_ControlBox = new System.Windows.Forms.Panel();
+            this.lbl_user = new System.Windows.Forms.Label();
             this.btn_Minimized = new System.Windows.Forms.Button();
             this.btn_Maximized = new System.Windows.Forms.Button();
             this.btn_Exit2 = new System.Windows.Forms.Button();
-            this.lbl_user = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -195,6 +195,16 @@
             this.pnl_ControlBox.TabIndex = 7;
             this.pnl_ControlBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnl_ControlBox_MouseDown);
             // 
+            // lbl_user
+            // 
+            this.lbl_user.AutoSize = true;
+            this.lbl_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_user.ForeColor = System.Drawing.Color.White;
+            this.lbl_user.Location = new System.Drawing.Point(7, 5);
+            this.lbl_user.Name = "lbl_user";
+            this.lbl_user.Size = new System.Drawing.Size(0, 17);
+            this.lbl_user.TabIndex = 4;
+            // 
             // btn_Minimized
             // 
             this.btn_Minimized.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -244,16 +254,6 @@
             this.btn_Exit2.TabIndex = 1;
             this.btn_Exit2.UseVisualStyleBackColor = false;
             this.btn_Exit2.Click += new System.EventHandler(this.btn_Exit_Click);
-            // 
-            // lbl_user
-            // 
-            this.lbl_user.AutoSize = true;
-            this.lbl_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_user.ForeColor = System.Drawing.Color.White;
-            this.lbl_user.Location = new System.Drawing.Point(7, 5);
-            this.lbl_user.Name = "lbl_user";
-            this.lbl_user.Size = new System.Drawing.Size(0, 17);
-            this.lbl_user.TabIndex = 4;
             // 
             // ControlPanel
             // 

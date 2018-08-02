@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,12 +19,14 @@ namespace IASAqueue_Client
     {
         Client client;
         Stopwatch timer = new Stopwatch();
+        string ip="127.0.0.1";
         public ControlPanel()
         {
             InitializeComponent();
         }
         private void ControlPanel_Load(object sender, EventArgs e)
         {
+            
             Login();
             if (client != null)
                 lbl_user.Text = client.Username;
@@ -32,11 +35,12 @@ namespace IASAqueue_Client
         private void Login()
         {
             timer_Update.Stop();
-            using (LogIn login = new LogIn())
+            using (LogIn login = new LogIn(ip))
             {
                 if (login.ShowDialog(this) == DialogResult.OK)
                 {
                     client = login.client;
+                    ip = login.IP;
                     lbl_abit.Text = "";
                 }
                 else

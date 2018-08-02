@@ -6,6 +6,7 @@ using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace IASAqueue_Server
 {
@@ -38,16 +39,16 @@ namespace IASAqueue_Server
             printDoc.PrinterSettings = ps;
             printDoc.Print();
 
-            //// --------------------------------------
+            // --------------------------------------
 
-            ////Uncomment if debugging - shows dialog instead
+            //Uncomment if debugging - shows dialog instead
             //PrintPreviewDialog printPrvDlg = new PrintPreviewDialog();
             //printPrvDlg.Document = printDoc;
             //printPrvDlg.Width = 228;
             //printPrvDlg.Height = 500;
             //printPrvDlg.ShowDialog();
 
-            //// --------------------------------------
+            // --------------------------------------
 
             printDoc.Dispose();
         }
@@ -79,9 +80,9 @@ namespace IASAqueue_Server
 
             center.Y += (int)(0.9 * z.Height);
             font = new Font(bebas, 11, FontStyle.Italic);
-            z = e.Graphics.MeasureString("Хе-хе-хе...", font);
+            z = e.Graphics.MeasureString("Пусть умолкнет \n                всякий критик", font);
             center.X = (int)((e.PageBounds.Width - z.Width - e.MarginBounds.Width) / 2);
-            e.Graphics.DrawString("Хе-хе-хе...", font, Brushes.Black, 0, center.Y);
+            e.Graphics.DrawString("Пусть умолкнет \n                всякий критик", font, Brushes.Black, 0, center.Y);
 
             font.Dispose();
             bebas.Dispose();

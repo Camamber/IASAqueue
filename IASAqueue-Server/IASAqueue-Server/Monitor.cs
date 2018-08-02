@@ -68,8 +68,6 @@ namespace IASAqueue_Server
 
         private void Queue_QueueUpdated(object sender, EventArgs e)
         {
-
-            notification.Play();
             if (!IsDisposed)
                 BeginInvoke((MethodInvoker)(() => Reload()));
         }
@@ -143,6 +141,11 @@ namespace IASAqueue_Server
         private void timer_Tick(object sender, EventArgs e)
         {
             lbl_Time.Text = DateTime.Now.ToString("dd MMMM, HH:mm");
+        }
+
+        private void label_TextChanged(object sender, EventArgs e)
+        {
+            notification.Play();
         }
     }
 }

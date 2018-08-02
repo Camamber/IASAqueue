@@ -227,7 +227,6 @@ namespace IASAqueue_Server
                     i = model.queue.Move(i, -1);
                 }
             }
-
             lb_Queue.SelectedIndex = i;
         }
 
@@ -242,7 +241,6 @@ namespace IASAqueue_Server
                 }
             }
             lb_Queue.SelectedIndex = i;
-
         }
 
         private void btn_RemoveQueue_Click(object sender, EventArgs e)
@@ -271,8 +269,12 @@ namespace IASAqueue_Server
 
         private void UpdateQueueList()
         {
+            lbl_inQueue.Text = model.queue.Length.ToString();
+            int selected = lb_Queue.SelectedIndex;
             lb_Queue.Items.Clear();
             lb_Queue.Items.AddRange(model.queue.QueueArr.Cast<object>().ToArray());
+            lb_Queue.SelectedIndex = selected;
+
             lbl_op1.Text = "Operator1: "+ model.users["user1"].Student.ToString();
             lbl_op2.Text = "Operator2: " + model.users["user2"].Student.ToString();
             lbl_op3.Text = "Operator3: " + model.users["user3"].Student.ToString();

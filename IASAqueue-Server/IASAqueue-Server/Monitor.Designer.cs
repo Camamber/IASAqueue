@@ -173,6 +173,7 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "label5";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label5.TextChanged += new System.EventHandler(this.label_TextChanged);
             // 
             // lbl_title5
             // 
@@ -215,6 +216,7 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "label4";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label4.TextChanged += new System.EventHandler(this.label_TextChanged);
             // 
             // lbl_title4
             // 
@@ -257,6 +259,7 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "label3";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label3.TextChanged += new System.EventHandler(this.label_TextChanged);
             // 
             // lbl_title3
             // 
@@ -299,6 +302,7 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "label2";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label2.TextChanged += new System.EventHandler(this.label_TextChanged);
             // 
             // lbl_title2
             // 
@@ -354,6 +358,7 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "label1";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label1.TextChanged += new System.EventHandler(this.label_TextChanged);
             // 
             // panel3
             // 
